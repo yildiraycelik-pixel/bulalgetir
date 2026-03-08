@@ -32,3 +32,4 @@ jobs:
           local-dir: dist/
           server-dir: /httpdocs/
           dangerous-clean-slate: true
+          options: --passive-ftp
