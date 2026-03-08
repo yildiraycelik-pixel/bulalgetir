@@ -1,0 +1,2 @@
+# bulalgetir
+e-ticaret
