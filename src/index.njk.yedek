@@ -1,0 +1,1381 @@
+﻿---
+layout: base.njk
+title: Ana Sayfa
+description: BulalGetir - İkinci el malzeme satışı, elektromekanik proje tasarım ve uygulama platformu
+---
+
+<div class="anasayfa">
+    <!-- Hero Banner with 5+5 Images - Kompakt -->
+    <section class="hero" style="margin-bottom: 5px; padding: 15px 0;">
+        <div class="container">
+            <div style="display: flex; align-items: center; justify-content: space-between; gap: 15px;">
+                
+                <!-- SOL GÖRSELLER (5 adet) -->
+                <div style="display: flex; gap: 6px; flex: 1; justify-content: flex-start;">
+                    <div class="hero-gallery">
+                        <img src="/assets/images/16A-wotomat.webp" alt="Elektrik">
+                    </div>
+                    <div class="hero-gallery">
+                        <img src="/assets/images/acil-aydinlatma.webp" alt="Aydınlatma">
+                    </div>
+                    <div class="hero-gallery">
+                        <img src="/assets/images/step-motor.webp" alt="Step Motor">
+                    </div>
+                    <div class="hero-gallery">
+                        <img src="/assets/images/servo-motor.webp" alt="Servo Motor">
+                    </div>
+                    <div class="hero-gallery">
+                        <img src="/assets/images/aku-jel.webp" alt="Akü">
+                    </div>
+                </div>
+                
+                <!-- ORTA - SADECE İKİNCİL METİN VE BUTONLAR (BAŞLIK YOK) -->
+                <div style="flex: 2; text-align: center;">
+                    <p style="font-size: 15px; margin-bottom: 10px; opacity: 0.9;">İkinci el malzeme, proje tasarım ve uygulama hizmetleri</p>
+                    <div style="display: flex; gap: 12px; justify-content: center;">
+                        <a href="/kategoriler/" class="btn-alisveris" style="background: #e6b17e; color: #1e3f1e; padding: 6px 20px; border-radius: 30px; text-decoration: none; font-weight: 500; font-size: 14px;">Alışverişe Başla</a>
+                        <a href="/projeler/" class="btn-projeler" style="background: transparent; color: white; padding: 6px 20px; border-radius: 30px; text-decoration: none; border: 2px solid white; font-weight: 500; font-size: 14px;">Projelerimiz</a>
+                    </div>
+                </div>
+                
+                <!-- SAĞ GÖRSELLER (5 adet) -->
+                <div style="display: flex; gap: 6px; flex: 1; justify-content: flex-end;">
+                    <div class="hero-gallery">
+                        <img src="/assets/images/380v-1hp-ac-general-electric.webp" alt="AC Motor">
+                    </div>
+                    <div class="hero-gallery">
+                        <img src="/assets/images/Ac-servo-motor-ve-surucusu.webp" alt="Servo Motor">
+                    </div>
+                    <div class="hero-gallery">
+                        <img src="/assets/images/agir-hizmet-mengenesi.webp" alt="Mengene">
+                    </div>
+                    <div class="hero-gallery">
+                        <img src="/assets/images/solar-panel.webp" alt="Solar Panel">
+                    </div>
+                    <div class="hero-gallery">
+                        <img src="/assets/images/mini-pc-raspberry-pi.webp" alt="Raspberry Pi">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Kategoriler - Yaprak formunda butonlar -->
+    <section class="ana-kategoriler" style="padding: 15px 0;">
+        <div class="container">
+            <div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
+                {% for kategori in kategoriler.kategoriler %}
+                <a href="/{{ kategori.slug }}/" class="kategori-buton">
+                    {{ kategori.adi }}
+                </a>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    
+    <!-- Hizmetler - Buton formatında -->
+    <section class="hizmetler" style="margin-top: 5px;">
+        <div class="container">
+            <div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
+                <a href="/ikinci-el/" class="kategori-buton">İkinci El Malzeme</a>
+                <a href="/proje-tasarim/" class="kategori-buton">Proje Tasarım</a>
+                <a href="/uygulama-atolye/" class="kategori-buton">Uygulama Atölye</a>
+                <a href="/laboratuvar-test/" class="kategori-buton">Laboratuvar Test</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Son Eklenen Ürünler -->
+    <section class="son-urunler">
+        <div class="container">
+            <h2>Son Eklenen Ürünler</h2>
+            <div class="urun-grid">
+                {% for urun in urunler.urunler %}
+                <div class="urun-kart">
+                    <div class="urun-gorsel">
+                        <img src="{{ urun.gorsel }}" alt="{{ urun.adi }}" loading="lazy">
+                        {% if urun.durum == "Sıfır" %}
+                        <span class="urun-badge yeni">Yeni</span>
+                        {% else %}
+                        <span class="urun-badge ikinci-el">İkinci El</span>
+                        {% endif %}
+                    </div>
+                    <div class="urun-bilgi">
+                        <h3><a href="#">{{ urun.adi }}</a></h3>
+                        <p class="urun-marka">{{ urun.marka }} {{ urun.model }}</p>
+                        <p class="urun-fiyat">{{ urun.fiyat }} TL</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+</div>
+
+    
+        
+        
+        
+    <!-- İstatistikler -->
+    <div class="istatistik-row">
+        <div class="istatistik-kutu">
+            <div class="sayi">500+</div>
+            <div>Ürün Çeşidi</div>
+        </div>
+        <div class="istatistik-kutu">
+            <div class="sayi">100+</div>
+            <div>Mutlu Müşteri</div>
+        </div>
+        <div class="istatistik-kutu">
+            <div class="sayi">7/24</div>
+            <div>Destek</div>
+        </div>
+    </div>
+    
+    <!-- Güven Rozetleri -->
+    <div class="guven-rozetleri">
+        <div><i class="fas fa-truck"></i> <span>Hızlı Teslimat</span></div>
+        <div><i class="fas fa-shield-alt"></i> <span>Güvenli Alışveriş</span></div>
+        <div><i class="fas fa-undo-alt"></i> <span>Kolay İade</span></div>
+        <div><i class="fas fa-headset"></i> <span>7/24 Destek</span></div>
+    </div>
+    
+    <!-- Günün Fırsatı -->
+    <div class="gunun-firsati">
+        <h3>Günün Fırsatı</h3>
+        <p>Seçili ürünlerde %20'ye varan indirim!</p>
+        <a href="/firsatlar">Hemen İncele</a>
+    </div><!-- İstatistikler -->
+    <div class="istatistik-row">
+        <div class="istatistik-kutu">
+            <div class="sayi">500+</div>
+            <div>Ürün Çeşidi</div>
+        </div>
+        <div class="istatistik-kutu">
+            <div class="sayi">100+</div>
+            <div>Mutlu Müşteri</div>
+        </div>
+        <div class="istatistik-kutu">
+            <div class="sayi">7/24</div>
+            <div>Destek</div>
+        </div>
+    </div>
+    
+    <!-- Güven Rozetleri -->
+    <div class="guven-rozetleri">
+        <div>
+            <i class="fas fa-truck"></i>
+            <span>Hızlı Teslimat</span>
+        </div>
+        <div>
+            <i class="fas fa-shield-alt"></i>
+            <span>Güvenli Alışveriş</span>
+        </div>
+        <div>
+            <i class="fas fa-undo-alt"></i>
+            <span>Kolay İade</span>
+        </div>
+        <div>
+            <i class="fas fa-headset"></i>
+            <span>7/24 Destek</span>
+        </div>
+    </div>
+    
+    <!-- Günün Fırsatı -->
+    <div class="gunun-firsati">
+        <h3>Günün Fırsatı</h3>
+        <p>Seçili ürünlerde %20'ye varan indirim!</p>
+        <a href="/firsatlar">Hemen İncele</a>
+    </div><!-- İstatistikler -->
+    <div class="istatistik-row" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin: 40px 0;">
+        <div class="istatistik-kutu" style="text-align: center;">
+            <div class="sayi">500+</div>
+            <div style="font-size: 16px; color: #666;">Ürün Çeşidi</div>
+        </div>
+        <div class="istatistik-kutu" style="text-align: center;">
+            <div class="sayi">100+</div>
+            <div style="font-size: 16px; color: #666;">Mutlu Müşteri</div>
+        </div>
+        <div class="istatistik-kutu" style="text-align: center;">
+            <div class="sayi">7/24</div>
+            <div style="font-size: 16px; color: #666;">Destek</div>
+        </div>
+    </div>
+    
+    <!-- Güven Rozetleri -->
+    <div class="guven-rozetleri" style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; margin: 30px 0;">
+        <div style="display: flex; align-items: center; gap: 10px;">
+            <i class="fas fa-truck"></i>
+            <span style="font-size: 14px; color: #666;">Hızlı Teslimat</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 10px;">
+            <i class="fas fa-shield-alt"></i>
+            <span style="font-size: 14px; color: #666;">Güvenli Alışveriş</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 10px;">
+            <i class="fas fa-undo-alt"></i>
+            <span style="font-size: 14px; color: #666;">Kolay İade</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 10px;">
+            <i class="fas fa-headset"></i>
+            <span style="font-size: 14px; color: #666;">7/24 Destek</span>
+        </div>
+    </div>
+    
+    <!-- Günün Fırsatı -->
+    <div class="gunun-firsati">
+        <h3 style="color: #2c5f2d; font-size: 28px; margin-bottom: 15px;">Günün Fırsatı</h3>
+        <p style="font-size: 18px; color: #666; margin-bottom: 25px;">Seçili ürünlerde %20'ye varan indirim!</p>
+        <a href="/firsatlar" style="display: inline-block; background: #e6b17e; color: #1e3f1e; padding: 12px 40px; border-radius: 30px; text-decoration: none; font-weight: 600;">Hemen İncele</a>
+    </div><!-- İstatistikler -->
+    <div class="istatistik-row" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin: 40px 0;">
+        <div class="istatistik-kutu" style="text-align: center;">
+            <div class="sayi">500+</div>
+            <div style="font-size: 16px; color: #666;">Ürün Çeşidi</div>
+        </div>
+        <div class="istatistik-kutu" style="text-align: center;">
+            <div class="sayi">100+</div>
+            <div style="font-size: 16px; color: #666;">Mutlu Müşteri</div>
+        </div>
+        <div class="istatistik-kutu" style="text-align: center;">
+            <div class="sayi">7/24</div>
+            <div style="font-size: 16px; color: #666;">Destek</div>
+        </div>
+    </div>
+    
+    <!-- Güven Rozetleri -->
+    <div class="guven-rozetleri" style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; margin: 30px 0;">
+        <div style="display: flex; align-items: center; gap: 10px;">
+            <i class="fas fa-truck"></i>
+            <span style="font-size: 14px; color: #666;">Hızlı Teslimat</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 10px;">
+            <i class="fas fa-shield-alt"></i>
+            <span style="font-size: 14px; color: #666;">Güvenli Alışveriş</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 10px;">
+            <i class="fas fa-undo-alt"></i>
+            <span style="font-size: 14px; color: #666;">Kolay İade</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 10px;">
+            <i class="fas fa-headset"></i>
+            <span style="font-size: 14px; color: #666;">7/24 Destek</span>
+        </div>
+    </div>
+    
+    <!-- Günün Fırsatı -->
+    <div class="gunun-firsati">
+        <h3 style="color: #2c5f2d; font-size: 28px; margin-bottom: 15px;">Günün Fırsatı</h3>
+        <p style="font-size: 18px; color: #666; margin-bottom: 25px;">Seçili ürünlerde %20'ye varan indirim!</p>
+        <a href="/firsatlar" style="display: inline-block; background: #e6b17e; color: #1e3f1e; padding: 12px 40px; border-radius: 30px; text-decoration: none; font-weight: 600;">Hemen İncele</a>
+    </div><style>
+.hero {
+    margin-bottom: 5px !important;
+    background: linear-gradient(135deg, #2c5f2d 0%, #1e3f1e 100%);
+    color: white;
+    min-height: auto !important;
+}
+
+.hero-gallery {
+    width: 55px;
+    height: 55px;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    border: 2px solid rgba(255,255,255,0.2);
+}
+
+.hero-gallery img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.3s ease;
+}
+
+.hero-gallery:hover {
+    transform: scale(1.15);
+    border-color: #e6b17e;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    z-index: 10;
+}
+
+.kategori-buton {
+    display: inline-block;
+    padding: 5px 16px;
+    background: #2c5f2d;
+    color: white;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 400;
+    transition: all 0.3s;
+    border-radius: 70% 30% 60% 40% / 50% 40% 60% 50%;
+    box-shadow: 0 3px 6px rgba(44, 95, 45, 0.2);
+}
+
+.kategori-buton:hover {
+    background: #1e3f1e;
+    transform: scale(1.05);
+}
+
+.btn-alisveris:hover, .btn-projeler:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero [style*="display: flex"] {
+        flex-direction: column;
+        gap: 10px !important;
+    }
+    
+    .hero-gallery {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .kategori-buton {
+        padding: 4px 12px;
+        font-size: 11px;
+    }
+}
+
+/* ===== ANA SAYFA GELİŞTİRMELERİ ===== */
+.hero {
+    background: linear-gradient(-45deg, #2c5f2d, #1e3f1e, #2c5f2d, #1e3f1e);
+    background-size: 400% 400%;
+    animation: gradient 10s ease infinite;
+}
+
+@keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.kategori-buton {
+    position: relative;
+    overflow: hidden;
+}
+
+.kategori-buton:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.kategori-buton:hover:after {
+    width: 300px;
+    height: 300px;
+}
+
+
+
+.urun-kart:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 30px rgba(44,95,45,0.3);
+}
+
+.hizli-ekle {
+    position: relative;
+    overflow: hidden;
+}
+
+.hizli-ekle:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.5s;
+}
+
+.hizli-ekle:hover:before {
+    left: 100%;
+}
+
+.istatistik-kutu .sayi {
+    font-size: 48px;
+    font-weight: 700;
+    color: #2c5f2d;
+    margin-bottom: 5px;
+}
+
+.guven-rozetleri i {
+    font-size: 24px;
+    color: #e6b17e;
+}
+
+.gunun-firsati {
+    background: linear-gradient(135deg, #2c5f2d20, #e6b17e20);
+    border-radius: 20px;
+    padding: 40px;
+    margin: 40px 0;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .istatistik-row {
+        grid-template-columns: 1fr !important;
+    }
+    
+    .guven-rozetleri {
+        gap: 20px;
+    }
+}
+/* ===== BÜYÜK ÜRÜN KARTLARI - 4 SÜTUN ===== */
+.urun-grid {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important; /* 6'dan 4'e düştü */
+    gap: 25px !important; /* Biraz daha geniş aralık */
+    margin: 30px 0;
+}
+
+/* Kartlar %33 daha büyük */
+
+
+.urun-kart:hover {
+    transform: scale(1.38); /* Hover'da biraz daha büyüsün */
+    z-index: 10;
+}
+
+/* Görsel alanı büyüdü */
+.urun-gorsel {
+    height: 140px !important; /* 100px'den 140px'e */
+    padding: 15px !important;
+}
+
+.urun-gorsel img {
+    max-width: 100px !important; /* 80px'den 100px'e */
+    max-height: 100px !important;
+}
+
+/* Yazılar büyüdü */
+.urun-bilgi h3 {
+    font-size: 15px !important; /* 12px'den 15px'e */
+    height: 40px !important; /* 30px'den 40px'e */
+    line-height: 1.4;
+}
+
+.urun-marka {
+    font-size: 12px !important; /* 10px'den 12px'e */
+    padding: 4px 8px !important;
+}
+
+.urun-fiyat {
+    font-size: 18px !important; /* 14px'den 18px'e */
+    margin: 8px 0 !important;
+}
+
+.urun-badge {
+    padding: 5px 12px !important; /* 3px 8px'den 5px 12px'e */
+    font-size: 11px !important; /* 9px'den 11px'e */
+}
+
+/* Responsive düzenlemeler */
+@media (max-width: 992px) {
+    .urun-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+    }
+    
+    
+}
+
+@media (max-width: 768px) {
+    .urun-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+    
+    
+}
+
+@media (max-width: 480px) {
+    .urun-grid {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+/* ===== DİĞER GELİŞTİRMELER ===== */
+.hero {
+    background: linear-gradient(-45deg, #2c5f2d, #1e3f1e, #2c5f2d, #1e3f1e);
+    background-size: 400% 400%;
+    animation: gradient 10s ease infinite;
+}
+
+@keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.kategori-buton {
+    position: relative;
+    overflow: hidden;
+}
+
+.kategori-buton:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.kategori-buton:hover:after {
+    width: 300px;
+    height: 300px;
+}
+
+.hizli-ekle {
+    position: relative;
+    overflow: hidden;
+}
+
+.hizli-ekle:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.5s;
+}
+
+.hizli-ekle:hover:before {
+    left: 100%;
+}
+
+.istatistik-kutu .sayi {
+    font-size: 48px;
+    font-weight: 700;
+    color: #2c5f2d;
+    margin-bottom: 5px;
+}
+
+.guven-rozetleri i {
+    font-size: 24px;
+    color: #e6b17e;
+}
+
+.gunun-firsati {
+    background: linear-gradient(135deg, #2c5f2d20, #e6b17e20);
+    border-radius: 20px;
+    padding: 40px;
+    margin: 40px 0;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .istatistik-row {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+    }
+    
+    .guven-rozetleri {
+        gap: 20px;
+    }
+    
+    .gunun-firsati {
+        padding: 30px 20px;
+    }
+    
+    .gunun-firsati h3 {
+        font-size: 24px !important;
+    }
+}
+/* ===== BÜYÜK ÜRÜN KARTLARI - 4 SÜTUN (GERÇEK BOYUT) ===== */
+.urun-grid {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important; /* 6'dan 4'e */
+    gap: 25px !important;
+    margin: 40px 0 !important;
+}
+
+/* Kartlar - scale kullanmadan gerçek boyut */
+
+
+.urun-kart:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(44, 95, 45, 0.2);
+    border-color: #2c5f2d;
+}
+
+/* Görsel alanı - gerçek boyut */
+.urun-gorsel {
+    height: 160px !important; /* 100px'den 160px'e */
+    padding: 15px !important;
+    background: #f9f9f9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #eee;
+}
+
+.urun-gorsel img {
+    max-width: 120px !important; /* 80px'den 120px'e */
+    max-height: 120px !important;
+    object-fit: contain;
+    transition: transform 0.3s;
+}
+
+.urun-kart:hover .urun-gorsel img {
+    transform: scale(1.1);
+}
+
+/* Yazılar - büyük */
+.urun-bilgi {
+    padding: 15px !important;
+    text-align: center;
+}
+
+.urun-bilgi h3 {
+    font-size: 16px !important; /* 12px'den 16px'e */
+    margin-bottom: 8px !important;
+    height: 44px !important; /* 30px'den 44px'e */
+    overflow: hidden;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.urun-bilgi h3 a {
+    color: #333;
+    text-decoration: none;
+}
+
+.urun-bilgi h3 a:hover {
+    color: #2c5f2d;
+}
+
+.urun-marka {
+    font-size: 13px !important; /* 10px'den 13px'e */
+    color: #666;
+    background: #f5f5f5;
+    padding: 4px 10px !important;
+    border-radius: 20px;
+    display: inline-block;
+    margin-bottom: 10px !important;
+}
+
+.urun-fiyat {
+    font-size: 20px !important; /* 14px'den 20px'e */
+    font-weight: 700;
+    color: #2c5f2d;
+    display: block;
+    margin-bottom: 10px !important;
+}
+
+.urun-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 5px 12px !important; /* 3px 8px'den */
+    border-radius: 20px !important;
+    font-size: 11px !important; /* 9px'den */
+    font-weight: 600;
+    color: white;
+    z-index: 2;
+}
+
+.urun-badge.yeni {
+    background: #28a745;
+}
+
+.urun-badge.ikinci-el {
+    background: #ff9800;
+}
+
+.hizli-ekle {
+    width: 90%;
+    margin: 8px auto 0 !important;
+    padding: 10px 0 !important; /* 6px'den 10px'e */
+    background: #2c5f2d;
+    color: white;
+    border: none;
+    border-radius: 30px !important;
+    cursor: pointer;
+    font-size: 13px !important; /* 11px'den 13px'e */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    opacity: 0;
+    transition: opacity 0.3s, background 0.3s;
+}
+
+.urun-kart:hover .hizli-ekle {
+    opacity: 1;
+}
+
+.hizli-ekle:hover {
+    background: #e6b17e;
+    color: #1e3f1e;
+}
+
+.hizli-ekle i {
+    font-size: 13px;
+}
+
+/* ===== DİĞER GELİŞTİRMELER ===== */
+.hero {
+    background: linear-gradient(-45deg, #2c5f2d, #1e3f1e, #2c5f2d, #1e3f1e);
+    background-size: 400% 400%;
+    animation: gradient 10s ease infinite;
+}
+
+@keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.kategori-buton {
+    position: relative;
+    overflow: hidden;
+}
+
+.kategori-buton:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.kategori-buton:hover:after {
+    width: 300px;
+    height: 300px;
+}
+
+.istatistik-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin: 50px 0;
+    padding: 30px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(44,95,45,0.1);
+}
+
+.istatistik-kutu {
+    text-align: center;
+}
+
+.istatistik-kutu .sayi {
+    font-size: 48px;
+    font-weight: 700;
+    color: #2c5f2d;
+    margin-bottom: 5px;
+}
+
+.istatistik-kutu div:last-child {
+    font-size: 16px;
+    color: #666;
+}
+
+.guven-rozetleri {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    flex-wrap: wrap;
+    margin: 40px 0;
+    padding: 20px;
+    background: white;
+    border-radius: 50px;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.05);
+}
+
+.guven-rozetleri > div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.guven-rozetleri i {
+    font-size: 24px;
+    color: #e6b17e;
+}
+
+.guven-rozetleri span {
+    font-size: 15px;
+    color: #555;
+    font-weight: 500;
+}
+
+.gunun-firsati {
+    background: linear-gradient(135deg, #2c5f2d10, #e6b17e20);
+    border-radius: 20px;
+    padding: 50px;
+    margin: 50px 0;
+    text-align: center;
+    border: 2px solid #e6b17e;
+}
+
+.gunun-firsati h3 {
+    color: #2c5f2d;
+    font-size: 32px;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.gunun-firsati p {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.gunun-firsati a {
+    display: inline-block;
+    background: #e6b17e;
+    color: #1e3f1e;
+    padding: 15px 50px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    transition: all 0.3s;
+    border: 2px solid #e6b17e;
+}
+
+.gunun-firsati a:hover {
+    background: transparent;
+    color: #e6b17e;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(230,177,126,0.3);
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .urun-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+    }
+    
+    .istatistik-row {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .urun-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+    
+    .urun-gorsel {
+        height: 140px !important;
+    }
+    
+    .urun-gorsel img {
+        max-width: 100px !important;
+        max-height: 100px !important;
+    }
+    
+    .istatistik-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .guven-rozetleri {
+        gap: 20px;
+    }
+    
+    .gunun-firsati {
+        padding: 30px 20px;
+    }
+    
+    .gunun-firsati h3 {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .urun-grid {
+        grid-template-columns: 1fr !important;
+    }
+    
+    .urun-gorsel {
+        height: 180px !important;
+    }
+    
+    .urun-gorsel img {
+        max-width: 130px !important;
+        max-height: 130px !important;
+    }
+}
+/* ===== SAYFA GENİŞLİĞİ SABİT ===== */
+.container {
+    max-width: 1000px !important; /* 1200px'den 1000px'e */
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* ===== BÜYÜK ÜRÜN KARTLARI - 4 SÜTUN ===== */
+.urun-grid {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 20px !important;
+    margin: 40px 0 !important;
+}
+
+
+
+/* HOVER - ÜZERİNE GELİNCE BÜYÜME (DÜZELTİLDİ) */
+.urun-kart:hover {
+    transform: scale(1.05); /* %5 büyüme */
+    border-color: #2c5f2d;
+    box-shadow: 0 15px 30px rgba(44, 95, 45, 0.2);
+    z-index: 10;
+}
+
+.urun-gorsel {
+    height: 150px !important;
+    padding: 12px !important;
+    background: #f9f9f9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #eee;
+    transition: all 0.3s;
+}
+
+.urun-kart:hover .urun-gorsel {
+    background: #fff;
+}
+
+.urun-gorsel img {
+    max-width: 110px !important;
+    max-height: 110px !important;
+    object-fit: contain;
+    transition: transform 0.3s;
+}
+
+.urun-kart:hover .urun-gorsel img {
+    transform: scale(1.1);
+}
+
+.urun-bilgi {
+    padding: 15px !important;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    background: white;
+}
+
+.urun-bilgi h3 {
+    font-size: 16px !important;
+    margin-bottom: 8px !important;
+    height: 44px !important;
+    overflow: hidden;
+    font-weight: 600;
+    line-height: 1.4;
+    color: #333;
+}
+
+.urun-bilgi h3 a {
+    color: #333;
+    text-decoration: none;
+}
+
+.urun-bilgi h3 a:hover {
+    color: #2c5f2d;
+}
+
+.urun-marka {
+    font-size: 12px !important;
+    color: #666;
+    background: #f5f5f5;
+    padding: 4px 10px !important;
+    border-radius: 20px;
+    display: inline-block;
+    margin-bottom: 8px !important;
+}
+
+.urun-fiyat {
+    font-size: 18px !important;
+    font-weight: 700;
+    color: #2c5f2d;
+    display: block;
+    margin-bottom: 8px !important;
+}
+
+/* Sepete Ekle Butonu - Hover'da görünür */
+.hizli-ekle {
+    width: 90%;
+    margin: 5px auto 0 !important;
+    padding: 8px 0 !important;
+    background: #2c5f2d;
+    color: white;
+    border: none;
+    border-radius: 30px !important;
+    cursor: pointer;
+    font-size: 12px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    opacity: 0;
+    transition: all 0.3s;
+}
+
+.urun-kart:hover .hizli-ekle {
+    opacity: 1;
+}
+
+.hizli-ekle:hover {
+    background: #e6b17e;
+    color: #1e3f1e;
+}
+
+/* Rozet */
+.urun-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 4px 10px !important;
+    border-radius: 20px !important;
+    font-size: 11px !important;
+    font-weight: 600;
+    color: white;
+    z-index: 20;
+}
+
+.urun-badge.yeni {
+    background: #28a745;
+}
+
+.urun-badge.ikinci-el {
+    background: #ff9800;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .container {
+        max-width: 100% !important;
+    }
+    
+    .urun-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .urun-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+    
+    .urun-gorsel {
+        height: 130px !important;
+    }
+    
+    .urun-gorsel img {
+        max-width: 90px !important;
+        max-height: 90px !important;
+    }
+    
+    .urun-kart:hover {
+        transform: scale(1.03);
+    }
+}
+
+@media (max-width: 480px) {
+    .urun-grid {
+        grid-template-columns: 1fr !important;
+    }
+    
+    .urun-gorsel {
+        height: 160px !important;
+    }
+    
+    .urun-gorsel img {
+        max-width: 120px !important;
+        max-height: 120px !important;
+    }
+}
+
+/* ===== DİĞER GELİŞTİRMELER ===== */
+.hero {
+    background: linear-gradient(-45deg, #2c5f2d, #1e3f1e, #2c5f2d, #1e3f1e);
+    background-size: 400% 400%;
+    animation: gradient 10s ease infinite;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+@keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.kategori-buton {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s;
+}
+
+.kategori-buton:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.2);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.kategori-buton:hover:after {
+    width: 300px;
+    height: 300px;
+}
+
+/* İstatistikler */
+.istatistik-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin: 40px 0;
+    padding: 30px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(44,95,45,0.1);
+}
+
+.istatistik-kutu {
+    text-align: center;
+}
+
+.istatistik-kutu .sayi {
+    font-size: 42px;
+    font-weight: 700;
+    color: #2c5f2d;
+    margin-bottom: 5px;
+}
+
+/* Güven Rozetleri */
+.guven-rozetleri {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin: 30px 0;
+    padding: 20px;
+    background: white;
+    border-radius: 40px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+}
+
+.guven-rozetleri > div {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.guven-rozetleri i {
+    font-size: 22px;
+    color: #e6b17e;
+}
+
+/* Günün Fırsatı */
+.gunun-firsati {
+    background: linear-gradient(135deg, #2c5f2d10, #e6b17e20);
+    border-radius: 15px;
+    padding: 40px;
+    margin: 40px 0;
+    text-align: center;
+    border: 2px solid #e6b17e;
+}
+
+.gunun-firsati h3 {
+    color: #2c5f2d;
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.gunun-firsati p {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.gunun-firsati a {
+    display: inline-block;
+    background: #e6b17e;
+    color: #1e3f1e;
+    padding: 12px 40px;
+    border-radius: 40px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.gunun-firsati a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(230,177,126,0.3);
+}
+
+/* Responsive düzenlemeler */
+@media (max-width: 768px) {
+    .istatistik-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .gunun-firsati {
+        padding: 30px 20px;
+    }
+}
+/* ===== DOĞRU HOVER - ÜZERİNE GELİNCE BÜYÜSÜN ===== */
+.urun-kart {
+    width: 100% !important;
+    height: auto !important;
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    overflow: hidden;
+    background: white;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+    position: relative;
+    transform: scale(1); /* Normal boyut */
+}
+
+/* HOVER - ÜZERİNE GELİNCE BÜYÜME (DOĞRU) */
+.urun-kart:hover {
+    transform: scale(1.08) !important; /* %8 büyüsün */
+    border-color: #2c5f2d;
+    box-shadow: 0 15px 30px rgba(44, 95, 45, 0.2);
+    z-index: 10;
+}
+
+.urun-gorsel {
+    height: 150px !important;
+    padding: 12px !important;
+    background: #f9f9f9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #eee;
+    transition: all 0.3s;
+}
+
+.urun-kart:hover .urun-gorsel img {
+    transform: scale(1.1);
+}
+
+.urun-gorsel img {
+    max-width: 110px !important;
+    max-height: 110px !important;
+    object-fit: contain;
+    transition: transform 0.3s;
+}
+
+.urun-bilgi {
+    padding: 15px !important;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    background: white;
+}
+
+.urun-bilgi h3 {
+    font-size: 16px !important;
+    margin-bottom: 8px !important;
+    height: 44px !important;
+    overflow: hidden;
+    font-weight: 600;
+    line-height: 1.4;
+    color: #333;
+}
+
+.urun-marka {
+    font-size: 12px !important;
+    color: #666;
+    background: #f5f5f5;
+    padding: 4px 10px !important;
+    border-radius: 20px;
+    display: inline-block;
+    margin-bottom: 8px !important;
+}
+
+.urun-fiyat {
+    font-size: 18px !important;
+    font-weight: 700;
+    color: #2c5f2d;
+    display: block;
+    margin-bottom: 8px !important;
+}
+
+/* Sepete Ekle Butonu */
+.hizli-ekle {
+    width: 90%;
+    margin: 5px auto 0 !important;
+    padding: 8px 0 !important;
+    background: #2c5f2d;
+    color: white;
+    border: none;
+    border-radius: 30px !important;
+    cursor: pointer;
+    font-size: 12px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.urun-kart:hover .hizli-ekle {
+    opacity: 1;
+}
+
+.hizli-ekle:hover {
+    background: #e6b17e;
+    color: #1e3f1e;
+}
+
+/* Rozet */
+.urun-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 4px 10px !important;
+    border-radius: 20px !important;
+    font-size: 11px !important;
+    font-weight: 600;
+    color: white;
+    z-index: 20;
+}
+
+.urun-badge.yeni { background: #28a745; }
+.urun-badge.ikinci-el { background: #ff9800; }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .urun-kart:hover {
+        transform: scale(1.05) !important;
+    }
+}</style>
+
+
+
+
+
+

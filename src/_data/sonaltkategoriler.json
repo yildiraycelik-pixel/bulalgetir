@@ -1,0 +1,69 @@
+{
+  "sonaltkategoriler": [
+    {
+      "id": 10101,
+      "adi": "Peyzaj Aydınlatma",
+      "slug": "peyzaj-aydinlatma",
+      "altkategori_id": 101,
+      "sira": 1
+    },
+    {
+      "id": 10102,
+      "adi": "İç Mimari Aydınlatma",
+      "slug": "ic-mimari-aydinlatma",
+      "altkategori_id": 101,
+      "sira": 2
+    },
+    {
+      "id": 10103,
+      "adi": "Endüstriyel Aydınlatma",
+      "slug": "endustriyel-aydinlatma",
+      "altkategori_id": 101,
+      "sira": 3
+    },
+    {
+      "id": 10104,
+      "adi": "Mobil Aydınlatma",
+      "slug": "mobil-aydinlatma",
+      "altkategori_id": 101,
+      "sira": 4
+    },
+    {
+      "id": 10201,
+      "adi": "Ac Dc Motorlar",
+      "slug": "ac-dc-motorlar",
+      "altkategori_id": 102,
+      "sira": 1
+    },
+    {
+      "id": 10202,
+      "adi": "Servo Motorlar",
+      "slug": "servo-motorlar",
+      "altkategori_id": 102,
+      "sira": 2
+    },
+    {
+      "id": 10203,
+      "adi": "Step Motorlar",
+      "slug": "step-motorlar",
+      "altkategori_id": 102,
+      "sira": 3
+    },
+    {
+      "id": 10204,
+      "adi": "Özel Motorlar",
+      "slug": "ozel-motorlar",
+      "altkategori_id": 102,
+      "sira": 4
+    },
+    {
+      "id": 10205,
+      "adi": "Kalıpçı Mengenesi",
+      "slug": "kalp-mengenesi",
+      "altkategori_id": 305,
+      "sira": 10205,
+      "eklenme_tarihi": "2026-03-07T18:02:31.257Z",
+      "guncellenme_tarihi": "2026-03-07T19:03:57.746Z"
+    }
+  ]
+}

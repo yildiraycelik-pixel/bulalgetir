@@ -1,0 +1,48 @@
+﻿---
+layout: base.njk
+title: Sepetim
+description: Alışveriş sepetiniz
+---
+
+<div class="sayfa-container">
+    <h1>Alışveriş Sepeti</h1>
+    
+    <div id="sepet-container">
+        <div class="sepet-bos">
+            <p>Sepetiniz boş. Alışverişe başlamak için <a href="/">ana sayfaya</a> gidin.</p>
+        </div>
+        
+        <div class="sepet-dolu" style="display: none;">
+            <table class="sepet-tablosu">
+                <thead>
+                    <tr>
+                        <th>Ürün</th>
+                        <th>Fiyat</th>
+                        <th>Adet</th>
+                        <th>Toplam</th>
+                        <th>İşlem</th>
+                    </tr>
+                </thead>
+                <tbody id="sepet-urunler">
+                    <!-- JS ile doldurulacak -->
+                </tbody>
+            </table>
+            
+            <div class="sepet-ozet">
+                <div class="toplam-tutar">
+                    <strong>Genel Toplam:</strong>
+                    <span id="genel-toplam">0 TL</span>
+                </div>
+                
+                <div class="sepet-butonlar">
+                    <button class="btn-temizle" onclick="sepetTemizle()">Sepeti Temizle</button>
+                    <a href="/satinalma" class="btn-odeme">Ödemeye Geç</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+// Sepet JavaScript kodları burada olacak
+</script>

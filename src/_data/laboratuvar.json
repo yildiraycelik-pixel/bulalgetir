@@ -1,0 +1,35 @@
+﻿{
+  "laboratuvar": {
+    "baslik": "Laboratuvar Test Hizmetleri",
+    "testler": {
+      "elektriksel": [
+        "İzolasyon Direnci Ölçümü",
+        "Kaçak Akım Testi",
+        "Yük Altında Çalışma Testi",
+        "Gerilim Dayanım Testi",
+        "Frekans Analizi"
+      ],
+      "elektronik": [
+        "OSİLOSKOP ile Sinyal Analizi",
+        "Spektrum Analizi",
+        "Güç Kalitesi Ölçümü",
+        "Termal Kamera ile İnceleme",
+        "Fonksiyon Testleri"
+      ],
+      "mekanik": [
+        "Sertlik Ölçümü",
+        "Çekme Dayanım Testi",
+        "Titreşim Analizi",
+        "Basınç Testi",
+        "Mikrometrik Ölçümler"
+      ]
+    },
+    "ekipmanlar": [
+      "Fluke 437 Series II Güç ve Enerji Analizörü",
+      "Rohde & Schwarz Sinyal Jeneratörü",
+      "Hioki Direnç Ölçer",
+      "FLIR Termal Kamera",
+      "Mitsubishi FX Serisi PLC Test Ünitesi"
+    ]
+  }
+}

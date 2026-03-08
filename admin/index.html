@@ -1,0 +1,1325 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BulalGetir Admin</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f0f2f5; }
+        
+        .login-container {
+            max-width: 400px;
+            margin: 100px auto;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .login-container h1 {
+            text-align: center;
+            color: #2c5f2d;
+            margin-bottom: 30px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        
+        .btn {
+            width: 100%;
+            padding: 12px;
+            background: #2c5f2d;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        
+        .btn:hover {
+            background: #1e3f1e;
+        }
+        
+        .btn-sm {
+            width: auto;
+            padding: 8px 15px;
+            font-size: 14px;
+        }
+        
+        .btn-danger {
+            background: #dc3545;
+        }
+        
+        .btn-danger:hover {
+            background: #c82333;
+        }
+        
+        .btn-warning {
+            background: #ffc107;
+            color: #333;
+        }
+        
+        .btn-warning:hover {
+            background: #e0a800;
+        }
+        
+        .btn-info {
+            background: #17a2b8;
+            color: white;
+        }
+        
+        .btn-info:hover {
+            background: #138496;
+        }
+        
+        .dashboard {
+            display: none;
+            padding: 20px;
+        }
+        
+        .header {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .header h1 {
+            color: #2c5f2d;
+        }
+        
+        .nav-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            background: white;
+            padding: 10px;
+            border-radius: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .nav-tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+        
+        .nav-tab:hover {
+            background: #e0e0e0;
+        }
+        
+        .nav-tab.active {
+            background: #2c5f2d;
+            color: white;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .section {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .section-header h2 {
+            color: #2c5f2d;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        th {
+            background: #f8f9fa;
+            padding: 12px;
+            text-align: left;
+            border-bottom: 2px solid #dee2e6;
+        }
+        
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: 5px;
+        }
+        
+        .btn-icon {
+            padding: 5px 10px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        
+        .btn-edit {
+            background: #ffc107;
+            color: #333;
+        }
+        
+        .btn-delete {
+            background: #dc3545;
+            color: white;
+        }
+        
+        .btn-view {
+            background: #17a2b8;
+            color: white;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        
+        .stat-card h3 {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        
+        .stat-card .number {
+            font-size: 28px;
+            font-weight: bold;
+            color: #2c5f2d;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+        }
+        
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-content {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 500px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        
+        .modal-content h2 {
+            color: #2c5f2d;
+            margin-bottom: 20px;
+        }
+        
+        .close {
+            float: right;
+            font-size: 24px;
+            cursor: pointer;
+            color: #999;
+        }
+        
+        .form-row {
+            margin-bottom: 15px;
+        }
+        
+        .form-row label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        
+        .form-row input,
+        .form-row select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div id="loginContainer" class="login-container">
+        <h1>BulalGetir Admin</h1>
+        <div class="form-group">
+            <label>Kullanıcı Adı</label>
+            <input type="text" id="username" value="admin">
+        </div>
+        <div class="form-group">
+            <label>Şifre</label>
+            <input type="password" id="password" value="admin123">
+        </div>
+        <button class="btn" onclick="girisYap()">Giriş Yap</button>
+        <div id="errorMessage" style="color: red; text-align: center; margin-top: 10px;"></div>
+    </div>
+
+    <div id="dashboard" class="dashboard">
+        <div class="header">
+            <h1>BulalGetir Admin Paneli</h1>
+            <button class="btn btn-sm btn-danger" onclick="cikisYap()">Çıkış Yap</button>
+        </div>
+        
+        <div class="nav-tabs">
+            <div class="nav-tab active" onclick="tabDegistir('dashboardTab')">Dashboard</div>
+            <div class="nav-tab" onclick="tabDegistir('kategorilerTab')">Kategoriler</div>
+            <div class="nav-tab" onclick="tabDegistir('altKategorilerTab')">Alt Kategoriler</div>
+            <div class="nav-tab" onclick="tabDegistir('sonAltKategorilerTab')">Son Alt Kategoriler</div>
+            <div class="nav-tab" onclick="tabDegistir('urunlerTab')">Ürünler</div>
+        </div>
+        
+        <div id="dashboardTab" class="tab-content active">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>Toplam Kategori</h3>
+                    <div class="number" id="toplamKategori">0</div>
+                </div>
+                <div class="stat-card">
+                    <h3>Toplam Alt Kategori</h3>
+                    <div class="number" id="toplamAltKategori">0</div>
+                </div>
+                <div class="stat-card">
+                    <h3>Toplam Son Alt Kategori</h3>
+                    <div class="number" id="toplamSonAltKategori">0</div>
+                </div>
+                <div class="stat-card">
+                    <h3>Toplam Ürün</h3>
+                    <div class="number" id="toplamUrun">0</div>
+                </div>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>Toplam Stok</h3>
+                    <div class="number" id="toplamStok">0</div>
+                </div>
+                <div class="stat-card">
+                    <h3>Kritik Stok</h3>
+                    <div class="number" id="kritikStok">0</div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="kategorilerTab" class="tab-content">
+            <div class="section">
+                <div class="section-header">
+                    <h2>Kategori Yönetimi</h2>
+                    <button class="btn btn-sm" onclick="kategoriEkleModal()">+ Yeni Kategori</button>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Kategori Adı</th>
+                            <th>Slug</th>
+                            <th>İşlemler</th>
+                        </tr>
+                    </thead>
+                    <tbody id="kategoriListesi"></tbody>
+                </table>
+            </div>
+        </div>
+        
+        <div id="altKategorilerTab" class="tab-content">
+            <div class="section">
+                <div class="section-header">
+                    <h2>Alt Kategori Yönetimi</h2>
+                    <button class="btn btn-sm" onclick="altKategoriEkleModal()">+ Yeni Alt Kategori</button>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Alt Kategori</th>
+                            <th>Bağlı Kategori</th>
+                            <th>Slug</th>
+                            <th>İşlemler</th>
+                        </tr>
+                    </thead>
+                    <tbody id="altKategoriListesi"></tbody>
+                </table>
+            </div>
+        </div>
+        
+        <div id="sonAltKategorilerTab" class="tab-content">
+            <div class="section">
+                <div class="section-header">
+                    <h2>Son Alt Kategori Yönetimi</h2>
+                    <button class="btn btn-sm" onclick="sonAltKategoriEkleModal()">+ Yeni Son Alt Kategori</button>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Son Alt Kategori</th>
+                            <th>Bağlı Alt Kategori</th>
+                            <th>Slug</th>
+                            <th>İşlemler</th>
+                        </tr>
+                    </thead>
+                    <tbody id="sonAltKategoriListesi"></tbody>
+                </table>
+            </div>
+        </div>
+        
+        <div id="urunlerTab" class="tab-content">
+            <div class="section">
+                <div class="section-header">
+                    <h2>Ürün Yönetimi</h2>
+                    <button class="btn btn-sm" onclick="urunEkleModal()">+ Yeni Ürün</button>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Ürün Adı</th>
+                            <th>Fiyat</th>
+                            <th>Stok</th>
+                            <th>Durum</th>
+                            <th>Kategori</th>
+                            <th>İşlemler</th>
+                        </tr>
+                    </thead>
+                    <tbody id="urunListesi"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Kategori Modal -->
+    <div id="kategoriModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="modalKapat('kategoriModal')">&times;</span>
+            <h2>Yeni Kategori Ekle</h2>
+            <div class="form-row">
+                <label>Kategori Adı</label>
+                <input type="text" id="kategoriAdi">
+            </div>
+            <button class="btn" onclick="kategoriKaydet()">Kaydet</button>
+        </div>
+    </div>
+    
+    <!-- Kategori Düzenle Modal -->
+    <div id="kategoriEditModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="modalKapat('kategoriEditModal')">&times;</span>
+            <h2>Kategori Düzenle</h2>
+            <input type="hidden" id="editKategoriId">
+            <div class="form-row">
+                <label>Kategori Adı</label>
+                <input type="text" id="editKategoriAdi">
+            </div>
+            <button class="btn" onclick="kategoriGuncelle()">Güncelle</button>
+        </div>
+    </div>
+    
+    <!-- Alt Kategori Modal -->
+    <div id="altKategoriModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="modalKapat('altKategoriModal')">&times;</span>
+            <h2>Yeni Alt Kategori Ekle</h2>
+            <div class="form-row">
+                <label>Kategori</label>
+                <select id="altKategoriKategori">
+                    <option value="">Seçiniz</option>
+                </select>
+            </div>
+            <div class="form-row">
+                <label>Alt Kategori Adı</label>
+                <input type="text" id="altKategoriAdi">
+            </div>
+            <button class="btn" onclick="altKategoriKaydet()">Kaydet</button>
+        </div>
+    </div>
+    
+    <!-- Alt Kategori Düzenle Modal -->
+    <div id="altKategoriEditModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="modalKapat('altKategoriEditModal')">&times;</span>
+            <h2>Alt Kategori Düzenle</h2>
+            <input type="hidden" id="editAltKategoriId">
+            <div class="form-row">
+                <label>Kategori</label>
+                <select id="editAltKategoriKategori">
+                    <option value="">Seçiniz</option>
+                </select>
+            </div>
+            <div class="form-row">
+                <label>Alt Kategori Adı</label>
+                <input type="text" id="editAltKategoriAdi">
+            </div>
+            <button class="btn" onclick="altKategoriGuncelle()">Güncelle</button>
+        </div>
+    </div>
+    
+    <!-- Son Alt Kategori Modal -->
+    <div id="sonAltKategoriModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="modalKapat('sonAltKategoriModal')">&times;</span>
+            <h2>Yeni Son Alt Kategori Ekle</h2>
+            <div class="form-row">
+                <label>Alt Kategori</label>
+                <select id="sonAltKategoriAltKategori">
+                    <option value="">Seçiniz</option>
+                </select>
+            </div>
+            <div class="form-row">
+                <label>Son Alt Kategori Adı</label>
+                <input type="text" id="sonAltKategoriAdi">
+            </div>
+            <button class="btn" onclick="sonAltKategoriKaydet()">Kaydet</button>
+        </div>
+    </div>
+    
+    <!-- Son Alt Kategori Düzenle Modal -->
+    <div id="sonAltKategoriEditModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="modalKapat('sonAltKategoriEditModal')">&times;</span>
+            <h2>Son Alt Kategori Düzenle</h2>
+            <input type="hidden" id="editSonAltKategoriId">
+            <div class="form-row">
+                <label>Alt Kategori</label>
+                <select id="editSonAltKategoriAltKategori">
+                    <option value="">Seçiniz</option>
+                </select>
+            </div>
+            <div class="form-row">
+                <label>Son Alt Kategori Adı</label>
+                <input type="text" id="editSonAltKategoriAdi">
+            </div>
+            <button class="btn" onclick="sonAltKategoriGuncelle()">Güncelle</button>
+        </div>
+    </div>
+    
+    <!-- Ürün Modal -->
+    <div id="urunModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="modalKapat('urunModal')">&times;</span>
+            <h2>Yeni Ürün Ekle</h2>
+            <div class="form-row">
+                <label>Ürün Adı</label>
+                <input type="text" id="urunAdi">
+            </div>
+            <div class="form-row">
+                <label>Kategori</label>
+                <select id="urunKategori" onchange="urunKategoriDegisti()">
+                    <option value="">Seçiniz</option>
+                </select>
+            </div>
+            <div class="form-row">
+                <label>Alt Kategori</label>
+                <select id="urunAltKategori" onchange="urunAltKategoriDegisti()">
+                    <option value="">Önce kategori seçin</option>
+                </select>
+            </div>
+            <div class="form-row">
+                <label>Son Alt Kategori</label>
+                <select id="urunSonAltKategori">
+                    <option value="">Önce alt kategori seçin</option>
+                </select>
+            </div>
+            <div class="form-row">
+                <label>Fiyat (TL)</label>
+                <input type="number" id="urunFiyat" step="0.01">
+            </div>
+            <div class="form-row">
+                <label>Stok</label>
+                <input type="number" id="urunStok" value="1">
+            </div>
+            <div class="form-row">
+                <label>Durum</label>
+                <select id="urunDurum">
+                    <option value="Sıfır">Sıfır</option>
+                    <option value="İkinci El">İkinci El</option>
+                </select>
+            </div>
+            <div class="form-row">
+                <label>Marka</label>
+                <input type="text" id="urunMarka">
+            </div>
+            <div class="form-row">
+                <label>Model</label>
+                <input type="text" id="urunModel">
+            </div>
+            <button class="btn" onclick="urunKaydet()">Kaydet</button>
+        </div>
+    </div>
+    
+    <!-- Ürün Düzenle Modal -->
+    <div id="urunEditModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="modalKapat('urunEditModal')">&times;</span>
+            <h2>Ürün Düzenle</h2>
+            <input type="hidden" id="editUrunId">
+            <div class="form-row">
+                <label>Ürün Adı</label>
+                <input type="text" id="editUrunAdi">
+            </div>
+            <div class="form-row">
+                <label>Kategori</label>
+                <select id="editUrunKategori" onchange="editUrunKategoriDegisti()">
+                    <option value="">Seçiniz</option>
+                </select>
+            </div>
+            <div class="form-row">
+                <label>Alt Kategori</label>
+                <select id="editUrunAltKategori" onchange="editUrunAltKategoriDegisti()">
+                    <option value="">Önce kategori seçin</option>
+                </select>
+            </div>
+            <div class="form-row">
+                <label>Son Alt Kategori</label>
+                <select id="editUrunSonAltKategori">
+                    <option value="">Önce alt kategori seçin</option>
+                </select>
+            </div>
+            <div class="form-row">
+                <label>Fiyat (TL)</label>
+                <input type="number" id="editUrunFiyat" step="0.01">
+            </div>
+            <div class="form-row">
+                <label>Stok</label>
+                <input type="number" id="editUrunStok">
+            </div>
+            <div class="form-row">
+                <label>Durum</label>
+                <select id="editUrunDurum">
+                    <option value="Sıfır">Sıfır</option>
+                    <option value="İkinci El">İkinci El</option>
+                </select>
+            </div>
+            <div class="form-row">
+                <label>Marka</label>
+                <input type="text" id="editUrunMarka">
+            </div>
+            <div class="form-row">
+                <label>Model</label>
+                <input type="text" id="editUrunModel">
+            </div>
+            <button class="btn" onclick="urunGuncelle()">Güncelle</button>
+        </div>
+    </div>
+    
+    <!-- Ürün Detay Modal -->
+    <div id="urunDetayModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="modalKapat('urunDetayModal')">&times;</span>
+            <h2 id="detayUrunAdi">Ürün Detayı</h2>
+            <div id="urunDetayIcerik"></div>
+        </div>
+    </div>
+
+    <script>
+        const API_URL = 'http://localhost:3001/api';
+        let token = localStorage.getItem('adminToken');
+        
+        window.onload = function() {
+            if (token) {
+                document.getElementById('loginContainer').style.display = 'none';
+                document.getElementById('dashboard').style.display = 'block';
+                tumVerileriYukle();
+                kategorileriYukle();
+                altKategorileriYukle();
+                sonAltKategorileriYukle();
+                urunleriYukle();
+            }
+        };
+        
+        function girisYap() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            
+            fetch(API_URL + '/auth/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ username, password })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.token) {
+                    token = data.token;
+                    localStorage.setItem('adminToken', token);
+                    document.getElementById('loginContainer').style.display = 'none';
+                    document.getElementById('dashboard').style.display = 'block';
+                    tumVerileriYukle();
+                    kategorileriYukle();
+                    altKategorileriYukle();
+                    sonAltKategorileriYukle();
+                    urunleriYukle();
+                } else {
+                    document.getElementById('errorMessage').textContent = 'Hatalı giriş';
+                }
+            })
+            .catch(() => {
+                document.getElementById('errorMessage').textContent = 'Sunucu hatası';
+            });
+        }
+        
+        function cikisYap() {
+            localStorage.removeItem('adminToken');
+            token = null;
+            document.getElementById('loginContainer').style.display = 'block';
+            document.getElementById('dashboard').style.display = 'none';
+        }
+        
+        function tabDegistir(tabId) {
+            document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+            event.target.classList.add('active');
+            
+            if (tabId === 'kategorilerTab') kategorileriYukle();
+            if (tabId === 'altKategorilerTab') altKategorileriYukle();
+            if (tabId === 'sonAltKategorilerTab') sonAltKategorileriYukle();
+            if (tabId === 'urunlerTab') urunleriYukle();
+        }
+        
+        function tumVerileriYukle() {
+            fetch(API_URL + '/kategoriler')
+                .then(r => r.json())
+                .then(data => {
+                    document.getElementById('toplamKategori').textContent = data.length;
+                });
+            
+            fetch(API_URL + '/altkategoriler')
+                .then(r => r.json())
+                .then(data => {
+                    document.getElementById('toplamAltKategori').textContent = data.length;
+                });
+            
+            fetch(API_URL + '/sonaltkategoriler')
+                .then(r => r.json())
+                .then(data => {
+                    document.getElementById('toplamSonAltKategori').textContent = data.length;
+                });
+            
+            fetch(API_URL + '/urunler')
+                .then(r => r.json())
+                .then(data => {
+                    document.getElementById('toplamUrun').textContent = data.length;
+                    
+                    let toplamStok = 0;
+                    let kritikStok = 0;
+                    data.forEach(u => {
+                        toplamStok += (u.stok || 0);
+                        if ((u.stok || 0) < 5) kritikStok++;
+                    });
+                    document.getElementById('toplamStok').textContent = toplamStok;
+                    document.getElementById('kritikStok').textContent = kritikStok;
+                });
+        }
+        
+        // KATEGORİ İŞLEMLERİ
+        function kategorileriYukle() {
+            fetch(API_URL + '/kategoriler')
+                .then(response => response.json())
+                .then(data => {
+                    let html = '';
+                    data.forEach(k => {
+                        html += '<tr>' +
+                            '<td>' + k.id + '</td>' +
+                            '<td>' + k.adi + '</td>' +
+                            '<td>' + k.slug + '</td>' +
+                            '<td class="action-buttons">' +
+                            '<button class="btn-icon btn-edit" onclick="kategoriDuzenle(' + k.id + ', \'' + k.adi + '\')">Düzenle</button>' +
+                            '<button class="btn-icon btn-delete" onclick="kategoriSil(' + k.id + ')">Sil</button>' +
+                            '</td>' +
+                            '</tr>';
+                    });
+                    document.getElementById('kategoriListesi').innerHTML = html;
+                });
+        }
+        
+        function kategoriEkleModal() {
+            document.getElementById('kategoriModal').classList.add('active');
+        }
+        
+        function kategoriKaydet() {
+            const adi = document.getElementById('kategoriAdi').value;
+            if (!adi) { alert('Kategori adı girin'); return; }
+            
+            fetch(API_URL + '/kategoriler', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + token },
+                body: JSON.stringify({ adi: adi })
+            })
+            .then(response => response.json())
+            .then(() => {
+                alert('Kategori eklendi');
+                modalKapat('kategoriModal');
+                document.getElementById('kategoriAdi').value = '';
+                kategorileriYukle();
+                tumVerileriYukle();
+            });
+        }
+        
+        function kategoriDuzenle(id, adi) {
+            document.getElementById('editKategoriId').value = id;
+            document.getElementById('editKategoriAdi').value = adi;
+            document.getElementById('kategoriEditModal').classList.add('active');
+        }
+        
+        function kategoriGuncelle() {
+            const id = document.getElementById('editKategoriId').value;
+            const adi = document.getElementById('editKategoriAdi').value;
+            
+            fetch(API_URL + '/kategoriler/' + id, {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + token },
+                body: JSON.stringify({ adi: adi })
+            })
+            .then(response => response.json())
+            .then(() => {
+                alert('Kategori güncellendi');
+                modalKapat('kategoriEditModal');
+                kategorileriYukle();
+            });
+        }
+        
+        function kategoriSil(id) {
+            if (!confirm('Emin misiniz?')) return;
+            
+            fetch(API_URL + '/kategoriler/' + id, {
+                method: 'DELETE',
+                headers: { 'Authorization': 'Bearer ' + token }
+            })
+            .then(() => {
+                alert('Kategori silindi');
+                kategorileriYukle();
+                tumVerileriYukle();
+            });
+        }
+        
+        // ALT KATEGORİ İŞLEMLERİ
+        function altKategorileriYukle() {
+            Promise.all([
+                fetch(API_URL + '/altkategoriler').then(r => r.json()),
+                fetch(API_URL + '/kategoriler').then(r => r.json())
+            ]).then(([altData, katData]) => {
+                let html = '';
+                altData.forEach(a => {
+                    const kategori = katData.find(k => k.id === a.kategori_id);
+                    html += '<tr>' +
+                        '<td>' + a.id + '</td>' +
+                        '<td>' + a.adi + '</td>' +
+                        '<td>' + (kategori ? kategori.adi : '-') + '</td>' +
+                        '<td>' + a.slug + '</td>' +
+                        '<td class="action-buttons">' +
+                        '<button class="btn-icon btn-edit" onclick="altKategoriDuzenle(' + a.id + ', ' + a.kategori_id + ', \'' + a.adi + '\')">Düzenle</button>' +
+                        '<button class="btn-icon btn-delete" onclick="altKategoriSil(' + a.id + ')">Sil</button>' +
+                        '</td>' +
+                        '</tr>';
+                });
+                document.getElementById('altKategoriListesi').innerHTML = html;
+            });
+        }
+        
+        function altKategoriEkleModal() {
+            fetch(API_URL + '/kategoriler')
+                .then(response => response.json())
+                .then(data => {
+                    let options = '<option value="">Seçiniz</option>';
+                    data.forEach(k => {
+                        options += '<option value="' + k.id + '">' + k.adi + '</option>';
+                    });
+                    document.getElementById('altKategoriKategori').innerHTML = options;
+                });
+            document.getElementById('altKategoriModal').classList.add('active');
+        }
+        
+        function altKategoriKaydet() {
+            const kategori_id = document.getElementById('altKategoriKategori').value;
+            const adi = document.getElementById('altKategoriAdi').value;
+            
+            if (!kategori_id || !adi) {
+                alert('Tüm alanları doldurun');
+                return;
+            }
+            
+            fetch(API_URL + '/altkategoriler', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + token },
+                body: JSON.stringify({ adi: adi, kategori_id: parseInt(kategori_id) })
+            })
+            .then(response => response.json())
+            .then(() => {
+                alert('Alt kategori eklendi');
+                modalKapat('altKategoriModal');
+                document.getElementById('altKategoriAdi').value = '';
+                altKategorileriYukle();
+                tumVerileriYukle();
+            });
+        }
+        
+        function altKategoriDuzenle(id, kategori_id, adi) {
+            document.getElementById('editAltKategoriId').value = id;
+            document.getElementById('editAltKategoriAdi').value = adi;
+            
+            fetch(API_URL + '/kategoriler')
+                .then(response => response.json())
+                .then(data => {
+                    let options = '';
+                    data.forEach(k => {
+                        const selected = k.id === kategori_id ? 'selected' : '';
+                        options += '<option value="' + k.id + '" ' + selected + '>' + k.adi + '</option>';
+                    });
+                    document.getElementById('editAltKategoriKategori').innerHTML = options;
+                });
+            
+            document.getElementById('altKategoriEditModal').classList.add('active');
+        }
+        
+        function altKategoriGuncelle() {
+            const id = document.getElementById('editAltKategoriId').value;
+            const kategori_id = document.getElementById('editAltKategoriKategori').value;
+            const adi = document.getElementById('editAltKategoriAdi').value;
+            
+            fetch(API_URL + '/altkategoriler/' + id, {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + token },
+                body: JSON.stringify({ adi: adi, kategori_id: parseInt(kategori_id) })
+            })
+            .then(response => response.json())
+            .then(() => {
+                alert('Alt kategori güncellendi');
+                modalKapat('altKategoriEditModal');
+                altKategorileriYukle();
+            });
+        }
+        
+        function altKategoriSil(id) {
+            if (!confirm('Emin misiniz?')) return;
+            
+            fetch(API_URL + '/altkategoriler/' + id, {
+                method: 'DELETE',
+                headers: { 'Authorization': 'Bearer ' + token }
+            })
+            .then(() => {
+                alert('Alt kategori silindi');
+                altKategorileriYukle();
+                tumVerileriYukle();
+            });
+        }
+        
+        // SON ALT KATEGORİ İŞLEMLERİ
+        function sonAltKategorileriYukle() {
+            Promise.all([
+                fetch(API_URL + '/sonaltkategoriler').then(r => r.json()),
+                fetch(API_URL + '/altkategoriler').then(r => r.json())
+            ]).then(([sonData, altData]) => {
+                let html = '';
+                sonData.forEach(s => {
+                    const altKategori = altData.find(a => a.id === s.altkategori_id);
+                    html += '<tr>' +
+                        '<td>' + s.id + '</td>' +
+                        '<td>' + s.adi + '</td>' +
+                        '<td>' + (altKategori ? altKategori.adi : '-') + '</td>' +
+                        '<td>' + s.slug + '</td>' +
+                        '<td class="action-buttons">' +
+                        '<button class="btn-icon btn-edit" onclick="sonAltKategoriDuzenle(' + s.id + ', ' + s.altkategori_id + ', \'' + s.adi + '\')">Düzenle</button>' +
+                        '<button class="btn-icon btn-delete" onclick="sonAltKategoriSil(' + s.id + ')">Sil</button>' +
+                        '</td>' +
+                        '</tr>';
+                });
+                document.getElementById('sonAltKategoriListesi').innerHTML = html;
+            });
+        }
+        
+        function sonAltKategoriEkleModal() {
+            fetch(API_URL + '/altkategoriler')
+                .then(response => response.json())
+                .then(data => {
+                    let options = '<option value="">Seçiniz</option>';
+                    data.forEach(a => {
+                        options += '<option value="' + a.id + '">' + a.adi + '</option>';
+                    });
+                    document.getElementById('sonAltKategoriAltKategori').innerHTML = options;
+                });
+            document.getElementById('sonAltKategoriModal').classList.add('active');
+        }
+        
+        function sonAltKategoriKaydet() {
+            const altkategori_id = document.getElementById('sonAltKategoriAltKategori').value;
+            const adi = document.getElementById('sonAltKategoriAdi').value;
+            
+            if (!altkategori_id || !adi) {
+                alert('Tüm alanları doldurun');
+                return;
+            }
+            
+            fetch(API_URL + '/sonaltkategoriler', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + token },
+                body: JSON.stringify({ adi: adi, altkategori_id: parseInt(altkategori_id) })
+            })
+            .then(response => response.json())
+            .then(() => {
+                alert('Son alt kategori eklendi');
+                modalKapat('sonAltKategoriModal');
+                document.getElementById('sonAltKategoriAdi').value = '';
+                sonAltKategorileriYukle();
+                tumVerileriYukle();
+            });
+        }
+        
+        function sonAltKategoriDuzenle(id, altkategori_id, adi) {
+            document.getElementById('editSonAltKategoriId').value = id;
+            document.getElementById('editSonAltKategoriAdi').value = adi;
+            
+            fetch(API_URL + '/altkategoriler')
+                .then(response => response.json())
+                .then(data => {
+                    let options = '';
+                    data.forEach(a => {
+                        const selected = a.id === altkategori_id ? 'selected' : '';
+                        options += '<option value="' + a.id + '" ' + selected + '>' + a.adi + '</option>';
+                    });
+                    document.getElementById('editSonAltKategoriAltKategori').innerHTML = options;
+                });
+            
+            document.getElementById('sonAltKategoriEditModal').classList.add('active');
+        }
+        
+        function sonAltKategoriGuncelle() {
+            const id = document.getElementById('editSonAltKategoriId').value;
+            const altkategori_id = document.getElementById('editSonAltKategoriAltKategori').value;
+            const adi = document.getElementById('editSonAltKategoriAdi').value;
+            
+            fetch(API_URL + '/sonaltkategoriler/' + id, {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + token },
+                body: JSON.stringify({ adi: adi, altkategori_id: parseInt(altkategori_id) })
+            })
+            .then(response => response.json())
+            .then(() => {
+                alert('Son alt kategori güncellendi');
+                modalKapat('sonAltKategoriEditModal');
+                sonAltKategorileriYukle();
+            });
+        }
+        
+        function sonAltKategoriSil(id) {
+            if (!confirm('Emin misiniz?')) return;
+            
+            fetch(API_URL + '/sonaltkategoriler/' + id, {
+                method: 'DELETE',
+                headers: { 'Authorization': 'Bearer ' + token }
+            })
+            .then(() => {
+                alert('Son alt kategori silindi');
+                sonAltKategorileriYukle();
+                tumVerileriYukle();
+            });
+        }
+        
+        // ÜRÜN İŞLEMLERİ
+        function urunleriYukle() {
+            Promise.all([
+                fetch(API_URL + '/urunler').then(r => r.json()),
+                fetch(API_URL + '/kategoriler').then(r => r.json())
+            ]).then(([urunData, katData]) => {
+                let html = '';
+                urunData.forEach(u => {
+                    const kategori = katData.find(k => k.id === u.kategori_id);
+                    html += '<tr>' +
+                        '<td>' + u.id + '</td>' +
+                        '<td>' + u.adi + '</td>' +
+                        '<td>' + u.fiyat + ' TL</td>' +
+                        '<td>' + (u.stok || 0) + '</td>' +
+                        '<td>' + (u.durum || '-') + '</td>' +
+                        '<td>' + (kategori ? kategori.adi : '-') + '</td>' +
+                        '<td class="action-buttons">' +
+                        '<button class="btn-icon btn-view" onclick="urunDetay(' + u.id + ')">Detay</button>' +
+                        '<button class="btn-icon btn-edit" onclick="urunDuzenle(' + u.id + ')">Düzenle</button>' +
+                        '<button class="btn-icon btn-delete" onclick="urunSil(' + u.id + ')">Sil</button>' +
+                        '</td>' +
+                        '</tr>';
+                });
+                document.getElementById('urunListesi').innerHTML = html;
+            });
+        }
+        
+        function urunEkleModal() {
+            // Kategorileri yükle
+            fetch(API_URL + '/kategoriler')
+                .then(response => response.json())
+                .then(data => {
+                    let options = '<option value="">Seçiniz</option>';
+                    data.forEach(k => {
+                        options += '<option value="' + k.id + '">' + k.adi + '</option>';
+                    });
+                    document.getElementById('urunKategori').innerHTML = options;
+                });
+            document.getElementById('urunModal').classList.add('active');
+        }
+        
+        function urunKategoriDegisti() {
+            const kategoriId = document.getElementById('urunKategori').value;
+            if (!kategoriId) {
+                document.getElementById('urunAltKategori').innerHTML = '<option value="">Önce kategori seçin</option>';
+                return;
+            }
+            
+            fetch(API_URL + '/altkategoriler/kategori/' + kategoriId)
+                .then(response => response.json())
+                .then(data => {
+                    let options = '<option value="">Alt kategori seçin</option>';
+                    data.forEach(a => {
+                        options += '<option value="' + a.id + '">' + a.adi + '</option>';
+                    });
+                    document.getElementById('urunAltKategori').innerHTML = options;
+                });
+        }
+        
+        function urunAltKategoriDegisti() {
+            const altKategoriId = document.getElementById('urunAltKategori').value;
+            if (!altKategoriId) {
+                document.getElementById('urunSonAltKategori').innerHTML = '<option value="">Önce alt kategori seçin</option>';
+                return;
+            }
+            
+            fetch(API_URL + '/sonaltkategoriler/altkategori/' + altKategoriId)
+                .then(response => response.json())
+                .then(data => {
+                    let options = '<option value="">Son alt kategori seçin</option>';
+                    data.forEach(s => {
+                        options += '<option value="' + s.id + '">' + s.adi + '</option>';
+                    });
+                    document.getElementById('urunSonAltKategori').innerHTML = options;
+                });
+        }
+        
+        function urunKaydet() {
+            const urun = {
+                adi: document.getElementById('urunAdi').value,
+                kategori_id: parseInt(document.getElementById('urunKategori').value),
+                altkategori_id: parseInt(document.getElementById('urunAltKategori').value) || null,
+                sonaltkategori_id: parseInt(document.getElementById('urunSonAltKategori').value) || null,
+                fiyat: parseFloat(document.getElementById('urunFiyat').value),
+                stok: parseInt(document.getElementById('urunStok').value),
+                durum: document.getElementById('urunDurum').value,
+                marka: document.getElementById('urunMarka').value,
+                model: document.getElementById('urunModel').value
+            };
+            
+            fetch(API_URL + '/urunler', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + token },
+                body: JSON.stringify(urun)
+            })
+            .then(response => response.json())
+            .then(() => {
+                alert('Ürün eklendi');
+                modalKapat('urunModal');
+                document.getElementById('urunAdi').value = '';
+                document.getElementById('urunFiyat').value = '';
+                document.getElementById('urunStok').value = '1';
+                urunleriYukle();
+                tumVerileriYukle();
+            });
+        }
+        
+        function urunDuzenle(id) {
+            fetch(API_URL + '/urunler/' + id)
+                .then(response => response.json())
+                .then(urun => {
+                    document.getElementById('editUrunId').value = urun.id;
+                    document.getElementById('editUrunAdi').value = urun.adi;
+                    document.getElementById('editUrunFiyat').value = urun.fiyat;
+                    document.getElementById('editUrunStok').value = urun.stok || 0;
+                    document.getElementById('editUrunDurum').value = urun.durum || 'Sıfır';
+                    document.getElementById('editUrunMarka').value = urun.marka || '';
+                    document.getElementById('editUrunModel').value = urun.model || '';
+                    
+                    // Kategorileri yükle
+                    fetch(API_URL + '/kategoriler')
+                        .then(r => r.json())
+                        .then(katData => {
+                            let katOptions = '';
+                            katData.forEach(k => {
+                                const selected = k.id === urun.kategori_id ? 'selected' : '';
+                                katOptions += '<option value="' + k.id + '" ' + selected + '>' + k.adi + '</option>';
+                            });
+                            document.getElementById('editUrunKategori').innerHTML = katOptions;
+                            
+                            // Alt kategorileri yükle
+                            if (urun.kategori_id) {
+                                fetch(API_URL + '/altkategoriler/kategori/' + urun.kategori_id)
+                                    .then(r => r.json())
+                                    .then(altData => {
+                                        let altOptions = '';
+                                        altData.forEach(a => {
+                                            const selected = a.id === urun.altkategori_id ? 'selected' : '';
+                                            altOptions += '<option value="' + a.id + '" ' + selected + '>' + a.adi + '</option>';
+                                        });
+                                        document.getElementById('editUrunAltKategori').innerHTML = altOptions;
+                                    });
+                            }
+                            
+                            // Son alt kategorileri yükle
+                            if (urun.altkategori_id) {
+                                fetch(API_URL + '/sonaltkategoriler/altkategori/' + urun.altkategori_id)
+                                    .then(r => r.json())
+                                    .then(sonData => {
+                                        let sonOptions = '';
+                                        sonData.forEach(s => {
+                                            const selected = s.id === urun.sonaltkategori_id ? 'selected' : '';
+                                            sonOptions += '<option value="' + s.id + '" ' + selected + '>' + s.adi + '</option>';
+                                        });
+                                        document.getElementById('editUrunSonAltKategori').innerHTML = sonOptions;
+                                    });
+                            }
+                        });
+                    
+                    document.getElementById('urunEditModal').classList.add('active');
+                });
+        }
+        
+        function editUrunKategoriDegisti() {
+            const kategoriId = document.getElementById('editUrunKategori').value;
+            if (!kategoriId) return;
+            
+            fetch(API_URL + '/altkategoriler/kategori/' + kategoriId)
+                .then(response => response.json())
+                .then(data => {
+                    let options = '<option value="">Alt kategori seçin</option>';
+                    data.forEach(a => {
+                        options += '<option value="' + a.id + '">' + a.adi + '</option>';
+                    });
+                    document.getElementById('editUrunAltKategori').innerHTML = options;
+                });
+        }
+        
+        function editUrunAltKategoriDegisti() {
+            const altKategoriId = document.getElementById('editUrunAltKategori').value;
+            if (!altKategoriId) return;
+            
+            fetch(API_URL + '/sonaltkategoriler/altkategori/' + altKategoriId)
+                .then(response => response.json())
+                .then(data => {
+                    let options = '<option value="">Son alt kategori seçin</option>';
+                    data.forEach(s => {
+                        options += '<option value="' + s.id + '">' + s.adi + '</option>';
+                    });
+                    document.getElementById('editUrunSonAltKategori').innerHTML = options;
+                });
+        }
+        
+        function urunGuncelle() {
+            const id = document.getElementById('editUrunId').value;
+            const urun = {
+                adi: document.getElementById('editUrunAdi').value,
+                kategori_id: parseInt(document.getElementById('editUrunKategori').value),
+                altkategori_id: parseInt(document.getElementById('editUrunAltKategori').value) || null,
+                sonaltkategori_id: parseInt(document.getElementById('editUrunSonAltKategori').value) || null,
+                fiyat: parseFloat(document.getElementById('editUrunFiyat').value),
+                stok: parseInt(document.getElementById('editUrunStok').value),
+                durum: document.getElementById('editUrunDurum').value,
+                marka: document.getElementById('editUrunMarka').value,
+                model: document.getElementById('editUrunModel').value
+            };
+            
+            fetch(API_URL + '/urunler/' + id, {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + token },
+                body: JSON.stringify(urun)
+            })
+            .then(response => response.json())
+            .then(() => {
+                alert('Ürün güncellendi');
+                modalKapat('urunEditModal');
+                urunleriYukle();
+            });
+        }
+        
+        function urunDetay(id) {
+            fetch(API_URL + '/urunler/' + id)
+                .then(response => response.json())
+                .then(urun => {
+                    document.getElementById('detayUrunAdi').textContent = urun.adi;
+                    
+                    let html = '<table style="width: 100%;">';
+                    html += '<tr><th>ID</th><td>' + urun.id + '</td></tr>';
+                    html += '<tr><th>Ürün Adı</th><td>' + urun.adi + '</td></tr>';
+                    html += '<tr><th>Fiyat</th><td>' + urun.fiyat + ' TL</td></tr>';
+                    html += '<tr><th>Stok</th><td>' + (urun.stok || 0) + '</td></tr>';
+                    html += '<tr><th>Durum</th><td>' + urun.durum + '</td></tr>';
+                    html += '<tr><th>Marka</th><td>' + (urun.marka || '-') + '</td></tr>';
+                    html += '<tr><th>Model</th><td>' + (urun.model || '-') + '</td></tr>';
+                    html += '<tr><th>Kategori ID</th><td>' + urun.kategori_id + '</td></tr>';
+                    html += '<tr><th>Alt Kategori ID</th><td>' + (urun.altkategori_id || '-') + '</td></tr>';
+                    html += '<tr><th>Son Alt Kategori ID</th><td>' + (urun.sonaltkategori_id || '-') + '</td></tr>';
+                    html += '</table>';
+                    
+                    document.getElementById('urunDetayIcerik').innerHTML = html;
+                    document.getElementById('urunDetayModal').classList.add('active');
+                });
+        }
+        
+        function urunSil(id) {
+            if (!confirm('Emin misiniz?')) return;
+            
+            fetch(API_URL + '/urunler/' + id, {
+                method: 'DELETE',
+                headers: { 'Authorization': 'Bearer ' + token }
+            })
+            .then(() => {
+                alert('Ürün silindi');
+                urunleriYukle();
+                tumVerileriYukle();
+            });
+        }
+        
+        function modalKapat(modalId) {
+            document.getElementById(modalId).classList.remove('active');
+        }
+    </script>
+</body>
+</html>

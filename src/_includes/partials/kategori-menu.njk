@@ -1,0 +1,233 @@
+﻿<!-- ===== PowerShell LS TARZI KATEGORİ MENÜSÜ ===== -->
+<div class="kategori-menu">
+    <div class="kategori-menu-header" onclick="toggleKategoriMenu()">
+        <span><i class="fas fa-folder-open"></i> Kategoriler</span>
+        <i class="fas fa-chevron-down" id="kategoriMenuIcon"></i>
+    </div>
+    
+    <div class="kategori-menu-dropdown" id="kategoriMenu">
+        <div class="kategori-menu-content">
+            {% for kategori in kategoriler.kategoriler | sort(false, false, 'sira') %}
+            <div class="kategori-item">
+                <div class="kategori-baslik" onclick="toggleAltKategori(this, {{ kategori.id }})">
+                    <span class="kategori-ok">▶</span>
+                    <a href="/{{ kategori.slug }}/">{{ kategori.adi }}</a>
+                </div>
+                <div class="altkategori-list" id="altKategori-{{ kategori.id }}" style="display: none;">
+                    {% set altKategoriler = altkategoriler.altkategoriler | altKategorilerByKategoriId(kategori.id) %}
+                    {% for alt in altKategoriler | sort(false, false, 'sira') %}
+                    <div class="altkategori-item">
+                        <div class="altkategori-baslik" onclick="toggleSonAltKategori(this, {{ alt.id }})">
+                            <span class="kategori-ok">▶</span>
+                            <a href="/{{ kategori.slug }}/{{ alt.slug }}/">{{ alt.adi }}</a>
+                        </div>
+                        <div class="sonaltkategori-list" id="sonAltKategori-{{ alt.id }}" style="display: none;">
+                            {% set sonAltKategoriler = sonaltkategoriler.sonaltkategoriler | sonAltKategorilerByAltKategoriId(alt.id) %}
+                            {% for sonAlt in sonAltKategoriler | sort(false, false, 'sira') %}
+                            <div class="sonaltkategori-item">
+                                <span class="kategori-ok"></span>
+                                <a href="/{{ kategori.slug }}/{{ alt.slug }}/{{ sonAlt.slug }}/">{{ sonAlt.adi }}</a>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<style>
+/* ===== PowerShell LS TARZI MENÜ STİLLERİ ===== */
+.kategori-menu {
+    position: relative;
+    display: inline-block;
+}
+
+.kategori-menu-header {
+    background: #2c5f2d;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 500;
+    border: 1px solid rgba(255,255,255,0.2);
+    width: 180px;
+    justify-content: space-between;
+}
+
+.kategori-menu-header:hover {
+    background: #1e3f1e;
+}
+
+.kategori-menu-header i {
+    font-size: 14px;
+}
+
+.kategori-menu-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 280px;
+    background: #1e1e1e;  /* PowerShell koyu teması */
+    border: 1px solid #333;
+    border-radius: 0 0 5px 5px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    display: none;
+    max-height: 450px;
+    overflow-y: auto;
+    z-index: 1000;
+    font-family: 'Consolas', 'Monaco', monospace;
+    font-size: 13px;
+    margin-top: 2px;
+}
+
+.kategori-menu-dropdown.active {
+    display: block;
+}
+
+.kategori-menu-content {
+    padding: 5px 0;
+    color: #cccccc;
+}
+
+.kategori-item, .altkategori-item, .sonaltkategori-item {
+    border-bottom: 1px solid #333;
+}
+
+.kategori-item:last-child, .altkategori-item:last-child {
+    border-bottom: none;
+}
+
+.kategori-baslik, .altkategori-baslik {
+    padding: 6px 10px 6px 15px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: background 0.2s;
+}
+
+.kategori-baslik:hover, .altkategori-baslik:hover {
+    background: #2d2d2d;
+}
+
+.kategori-ok {
+    color: #569cd6;  /* PowerShell mavisi */
+    font-size: 12px;
+    width: 16px;
+    display: inline-block;
+}
+
+.kategori-baslik a, .altkategori-baslik a, .sonaltkategori-item a {
+    color: #cccccc;
+    text-decoration: none;
+    flex: 1;
+}
+
+.kategori-baslik a:hover, .altkategori-baslik a:hover, .sonaltkategori-item a:hover {
+    color: #569cd6;
+}
+
+.altkategori-list, .sonaltkategori-list {
+    background: #252525;
+    border-left: 2px solid #569cd6;
+    margin-left: 25px;
+}
+
+.altkategori-item .kategori-baslik {
+    padding-left: 20px;
+}
+
+.sonaltkategori-item {
+    padding: 4px 10px 4px 35px;
+    border-bottom: 1px solid #333;
+}
+
+.sonaltkategori-item:last-child {
+    border-bottom: none;
+}
+
+.sonaltkategori-item .kategori-ok {
+    visibility: hidden;
+}
+
+/* PowerShell renkleri */
+.kategori-menu-dropdown::-webkit-scrollbar {
+    width: 8px;
+    background: #1e1e1e;
+}
+
+.kategori-menu-dropdown::-webkit-scrollbar-thumb {
+    background: #555;
+    border-radius: 4px;
+}
+
+.kategori-menu-dropdown::-webkit-scrollbar-thumb:hover {
+    background: #666;
+}
+</style>
+
+<script>
+function toggleKategoriMenu() {
+    const menu = document.getElementById('kategoriMenu');
+    const icon = document.getElementById('kategoriMenuIcon');
+    menu.classList.toggle('active');
+    icon.classList.toggle('fa-chevron-down');
+    icon.classList.toggle('fa-chevron-up');
+}
+
+function toggleAltKategori(element, kategoriId) {
+    event.preventDefault();
+    event.stopPropagation();
+    
+    const altList = document.getElementById('altKategori-' + kategoriId);
+    const ok = element.querySelector('.kategori-ok');
+    
+    if (altList.style.display === 'none') {
+        altList.style.display = 'block';
+        ok.innerHTML = '▼';
+        ok.style.color = '#ffd700';
+    } else {
+        altList.style.display = 'none';
+        ok.innerHTML = '▶';
+        ok.style.color = '#569cd6';
+    }
+}
+
+function toggleSonAltKategori(element, altKategoriId) {
+    event.preventDefault();
+    event.stopPropagation();
+    
+    const sonAltList = document.getElementById('sonAltKategori-' + altKategoriId);
+    const ok = element.querySelector('.kategori-ok');
+    
+    if (sonAltList && sonAltList.style.display === 'none') {
+        sonAltList.style.display = 'block';
+        ok.innerHTML = '▼';
+        ok.style.color = '#ffd700';
+    } else if (sonAltList) {
+        sonAltList.style.display = 'none';
+        ok.innerHTML = '▶';
+        ok.style.color = '#569cd6';
+    }
+}
+
+// Menü dışına tıklandığında kapat
+document.addEventListener('click', function(event) {
+    const menu = document.getElementById('kategoriMenu');
+    const header = document.querySelector('.kategori-menu-header');
+    const icon = document.getElementById('kategoriMenuIcon');
+    
+    if (menu && header && !header.contains(event.target) && !menu.contains(event.target)) {
+        menu.classList.remove('active');
+        icon.classList.remove('fa-chevron-up');
+        icon.classList.add('fa-chevron-down');
+    }
+});
+</script>

@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İletişim | BulalGetir</title>
+    <meta name="description" content="BulalGetir iletişim bilgileri ve iletişim formu">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+    ﻿<header class="site-header">
+    <div class="header-top">
+        <div class="container">
+            <div class="header-top-content">
+                <div class="social-links">
+                    <a href="https://facebook.com/bulalgetir" target="_blank" rel="noopener" class="social-link">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://twitter.com/bulalgetir" target="_blank" rel="noopener" class="social-link">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://instagram.com/bulalgetir" target="_blank" rel="noopener" class="social-link">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://linkedin.com/company/bulalgetir" target="_blank" rel="noopener" class="social-link">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://youtube.com/bulalgetir" target="_blank" rel="noopener" class="social-link">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+                
+                <div class="user-actions">
+                    <a href="/kayit-ol" class="user-link register-link">
+                        <i class="fas fa-user-plus"></i> Kayıt Ol
+                    </a>
+                    <span class="separator">|</span>
+                    <a href="/giris-yap" class="user-link login-link">
+                        <i class="fas fa-sign-in-alt"></i> Giriş Yap
+                    </a>
+                    <div class="user-menu" style="display: none;">
+                        <a href="/hesabim" class="user-link">
+                            <i class="fas fa-user"></i> Hesabım
+                        </a>
+                        <a href="/siparislerim" class="user-link">
+                            <i class="fas fa-box"></i> Siparişlerim
+                        </a>
+                        <a href="/cikis" class="user-link logout-link">
+                            <i class="fas fa-sign-out-alt"></i> Çıkış
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="header-main">
+        <div class="container">
+            <div class="header-main-content">
+                <div class="logo">
+                    <a href="/">
+                        <h1>BulalGetir</h1>
+                    </a>
+                </div>
+                
+                <div class="search-box">
+                    <form action="/ara" method="GET">
+                        <input type="text" name="q" placeholder="Ürün ara..." class="search-input">
+                        <button type="submit" class="search-button">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </form>
+                </div>
+                
+                <div class="header-cart">
+                    <a href="/sepet" class="cart-link">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                        <span class="cart-text">Sepetim</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="header-nav">
+        <div class="container">
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="/">Ana Sayfa</a></li>
+                    <li class="has-dropdown">
+                        <a href="/kategoriler">Kategoriler <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-menu">
+                            <div class="mega-menu">
+                                <div class="mega-menu-grid">
+                                    
+                                    <div class="mega-menu-column">
+                                        <h4><a href="/elektrik/">Elektrik</a></h4>
+                                        <ul>
+                                            
+                                            
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="mega-menu-column">
+                                        <h4><a href="/elektronik/">Elektronik</a></h4>
+                                        <ul>
+                                            
+                                            
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="mega-menu-column">
+                                        <h4><a href="/enerji/">Enerji</a></h4>
+                                        <ul>
+                                            
+                                            
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="mega-menu-column">
+                                        <h4><a href="/mekanik/">Mekanik</a></h4>
+                                        <ul>
+                                            
+                                            
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="mega-menu-column">
+                                        <h4><a href="/makineler/">Makineler</a></h4>
+                                        <ul>
+                                            
+                                            
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="mega-menu-column">
+                                        <h4><a href="/el-aletleri/">El Aletleri</a></h4>
+                                        <ul>
+                                            
+                                            
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="mega-menu-column">
+                                        <h4><a href="/montaj-malzemeleri/">Montaj Malzemeleri</a></h4>
+                                        <ul>
+                                            
+                                            
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="mega-menu-column">
+                                        <h4><a href="/ev-urunleri/">Ev Ürünleri</a></h4>
+                                        <ul>
+                                            
+                                            
+                                        </ul>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li><a href="/projeler">Projeler</a></li>
+                    <li><a href="/laboratuvar-test">Lab Test</a></li>
+                    <li><a href="/uygulama-atolye">Atölye</a></li>
+                    <li><a href="/hakkimizda">Hakkımızda</a></li>
+                    <li><a href="/iletisim">İletişim</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
+
+<!-- Admin Paneli Butonu TAMAMEN KALDIRILDI -->
+
+<script>
+// Kullanıcı oturum durumunu kontrol et
+document.addEventListener('DOMContentLoaded', function() {
+    const isLoggedIn = localStorage.getItem('userLoggedIn') === 'true';
+    
+    const userActions = document.querySelector('.user-actions');
+    const userMenu = document.querySelector('.user-menu');
+    const registerLink = document.querySelector('.register-link');
+    const loginLink = document.querySelector('.login-link');
+    
+    if (isLoggedIn) {
+        if (userActions) {
+            registerLink.style.display = 'none';
+            loginLink.style.display = 'none';
+            userMenu.style.display = 'inline-flex';
+        }
+    } else {
+        if (userActions) {
+            registerLink.style.display = 'inline';
+            loginLink.style.display = 'inline';
+            userMenu.style.display = 'none';
+        }
+    }
+});
+</script>
+
+    
+    <main class="main-content">
+        
+<div class="sayfa-container">
+    <h1>İletişim</h1>
+    
+    <div class="iletisim-grid">
+        <div class="iletisim-bilgiler">
+            <h2>İletişim Bilgileri</h2>
+            
+            <div class="bilgi-item">
+                <h3>Adres</h3>
+                <p>[Firma Adresiniz]</p>
+            </div>
+            
+            <div class="bilgi-item">
+                <h3>Telefon</h3>
+                <p>[Telefon Numaranız]</p>
+            </div>
+            
+            <div class="bilgi-item">
+                <h3>E-posta</h3>
+                <p>[E-posta Adresiniz]</p>
+            </div>
+            
+            <div class="bilgi-item">
+                <h3>Çalışma Saatleri</h3>
+                <p>Pazartesi - Cuma: 09:00 - 18:00</p>
+                <p>Cumartesi: 09:00 - 13:00</p>
+                <p>Pazar: Kapalı</p>
+            </div>
+        </div>
+        
+        <div class="iletisim-form">
+            <h2>Bize Yazın</h2>
+            <form action="/mesaj-gonder" method="POST">
+                <div class="form-group">
+                    <label for="ad">Ad Soyad</label>
+                    <input type="text" id="ad" name="ad" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">E-posta</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="telefon">Telefon</label>
+                    <input type="tel" id="telefon" name="telefon">
+                </div>
+                
+                <div class="form-group">
+                    <label for="konu">Konu</label>
+                    <select id="konu" name="konu">
+                        <option value="bilgi">Bilgi Talebi</option>
+                        <option value="teklif">Teklif Talebi</option>
+                        <option value="destek">Teknik Destek</option>
+                        <option value="proje">Proje Talebi</option>
+                        <option value="diger">Diğer</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="mesaj">Mesaj</label>
+                    <textarea id="mesaj" name="mesaj" rows="5" required></textarea>
+                </div>
+                
+                <button type="submit" class="btn-gonder">Gönder</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+    </main>
+    
+    ﻿<footer class="site-footer" style="position: relative; overflow: hidden;">
+    <!-- BİZ KİM GÖRSELİ - SAĞ ORTA, 350px -->
+    <div style="position: absolute; right: 20px; top: 50%; transform: translateY(-50%); z-index: 1; width: 350px;">
+        <img src="/assets/images/biz-kim.png" alt="Biz Kim" style="width: 100%; height: auto; display: block;">
+    </div>
+    
+    <div class="container" style="position: relative; z-index: 2;">
+        <div class="footer-grid">
+            <div class="footer-section">
+                <h3>BulalGetir</h3>
+                <p>İkinci el malzeme satışı, elektromekanik proje tasarım ve uygulama platformu</p>
+                <p>&copy; 2026 Tüm hakları saklıdır.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Kategoriler</h4>
+                <ul>
+                    
+                    <li><a href="/elektrik/">Elektrik</a></li>
+                    
+                    <li><a href="/elektronik/">Elektronik</a></li>
+                    
+                    <li><a href="/enerji/">Enerji</a></li>
+                    
+                    <li><a href="/mekanik/">Mekanik</a></li>
+                    
+                    <li><a href="/makineler/">Makineler</a></li>
+                    
+                    <li><a href="/el-aletleri/">El Aletleri</a></li>
+                    
+                    <li><a href="/montaj-malzemeleri/">Montaj Malzemeleri</a></li>
+                    
+                    <li><a href="/ev-urunleri/">Ev Ürünleri</a></li>
+                    
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Kurumsal</h4>
+                <ul>
+                    <li><a href="/hakkimizda/">Hakkımızda</a></li>
+                    <li><a href="/projeler/">Projeler</a></li>
+                    <li><a href="/laboratuvar-test/">Laboratuvar Test</a></li>
+                    <li><a href="/uygulama-atolye/">Uygulama Atölye</a></li>
+                    <li><a href="/iletisim/">İletişim</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <script src="/assets/js/main.js"></script>
+</body>
+</html>

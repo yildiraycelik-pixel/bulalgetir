@@ -1,0 +1,15 @@
+﻿<div class="mega-menu">
+    <div class="mega-menu-grid">
+        {% for kategori in kategoriler.kategoriler %}
+        <div class="mega-menu-column">
+            <h4><a href="/{{ kategori.slug }}/">{{ kategori.adi }}</a></h4>
+            <ul>
+                {% set altKategoriler = altkategoriler.altkategoriler | altKategorilerByKategoriId(kategori.id) %}
+                {% for alt in altKategoriler %}
+                <li><a href="/{{ kategori.slug }}/{{ alt.slug }}/">{{ alt.adi }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endfor %}
+    </div>
+</div>

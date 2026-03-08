@@ -1,0 +1,13 @@
+﻿{
+  "iletisim": {
+    "adres": "Teknoloji Mahallesi, Elektronik Cad. No:42, 34700, İstanbul",
+    "telefon": "+90 (212) 444 0 123",
+    "email": "info@bulalgetir.com",
+    "calisma_saatleri": {
+      "haftaici": "09:00 - 18:00",
+      "cumartesi": "09:00 - 13:00",
+      "pazar": "Kapalı"
+    },
+    "harita": "https://maps.google.com/?q=..."
+  }
+}

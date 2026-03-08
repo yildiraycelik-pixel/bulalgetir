@@ -1,0 +1,18 @@
+﻿---
+layout: base.njk
+---
+
+<div class="sonaltkategori-sayfasi">
+    <h1>{{ sonAltKategori.adi }}</h1>
+    
+    <p>{{ kategori.adi }} > {{ altKategori.adi }} > {{ sonAltKategori.adi }}</p>
+    
+    {# Ürünleri filtrele #}
+    <div class="urun-grid">
+        {% for urun in urunler.urunler %}
+            {% if urun.sonaltkategori_id == sonAltKategori.id %}
+                {% include "partials/urun-kart.njk" %}
+            {% endif %}
+        {% endfor %}
+    </div>
+</div>

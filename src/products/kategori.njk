@@ -1,0 +1,24 @@
+﻿---
+layout: base.njk
+---
+
+<div class="kategori-sayfasi">
+    <h1>{{ kategori.adi }} Kategorisi</h1>
+    
+    {% set altKategoriler = altkategoriler.altkategoriler | altKategorilerByKategoriId(kategori.id) %}
+    
+    <div class="alt-kategori-grid">
+        {% for alt in altKategoriler %}
+        <div class="alt-kategori-kart">
+            <h2><a href="/{{ kategori.slug }}/{{ alt.slug }}/">{{ alt.adi }}</a></h2>
+            
+            {% set sonAltKategoriler = sonaltkategoriler.sonaltkategoriler | sonAltKategorilerByAltKategoriId(alt.id) %}
+            <ul>
+                {% for sonAlt in sonAltKategoriler %}
+                <li><a href="/{{ kategori.slug }}/{{ alt.slug }}/{{ sonAlt.slug }}/">{{ sonAlt.adi }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endfor %}
+    </div>
+</div>

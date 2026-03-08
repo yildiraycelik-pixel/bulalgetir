@@ -1,0 +1,19 @@
+﻿<div class="kategori-list">
+    <h2>Kategoriler</h2>
+    <ul>
+        {% for kategori in kategoriler.kategoriler %}
+        <li>
+            <a href="/{{ kategori.slug }}/">{{ kategori.adi }}</a>
+            
+            {% set altKategoriler = altkategoriler.altkategoriler | altKategorilerByKategoriId(kategori.id) %}
+            {% if altKategoriler.length > 0 %}
+            <ul>
+                {% for alt in altKategoriler %}
+                <li><a href="/{{ kategori.slug }}/{{ alt.slug }}/">{{ alt.adi }}</a></li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+</div>

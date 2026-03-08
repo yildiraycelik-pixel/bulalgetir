@@ -1,0 +1,32 @@
+﻿{
+  "atolye": {
+    "baslik": "Uygulama Atölye",
+    "aciklama": "Profesyonel ekibimiz ve modern ekipmanlarımızla, projelerinizin uygulama aşamasında yanınızdayız. Prototip geliştirme, montaj, bakım ve onarım hizmetleri sunuyoruz.",
+    "hizmetler": [
+      {
+        "adi": "Prototip Geliştirme",
+        "aciklama": "Elektronik kart tasarımı, mekanik prototip üretimi ve test süreçleri"
+      },
+      {
+        "adi": "Montaj Hizmeti",
+        "aciklama": "Pano montajı, makine montajı, saha montaj ve devreye alma"
+      },
+      {
+        "adi": "Bakım ve Onarım",
+        "aciklama": "Periyodik bakım, arıza tespiti, yedek parça temini ve onarım"
+      },
+      {
+        "adi": "Eğitim",
+        "aciklama": "PLC programlama, otomasyon sistemleri, güç elektroniği eğitimleri"
+      }
+    ],
+    "ekipmanlar": [
+      "Lehim istasyonları (Hakko, JBC)",
+      "Osiloskoplar (Rigol, Siglent)",
+      "Güç kaynakları",
+      "Matkap ve freze tezgahları",
+      "3D yazıcı",
+      "Kalibrasyon cihazları"
+    ]
+  }
+}

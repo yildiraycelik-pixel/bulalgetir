@@ -1,0 +1,154 @@
+﻿---
+layout: base.njk
+title: Yönetim Paneli
+description: BulalGetir Yönetim Paneli
+permalink: /admin/index.html
+---
+
+<div class="admin-login-container">
+    <div class="admin-login-box">
+        <h1>Yönetim Paneli</h1>
+        <p class="admin-description">Lütfen yönetici bilgilerinizle giriş yapın.</p>
+        
+        <div class="admin-login-form">
+            <div class="form-group">
+                <label for="username">Kullanıcı Adı</label>
+                <input type="text" id="username" name="username" value="admin" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="password">Şifre</label>
+                <input type="password" id="password" name="password" value="admin123" required>
+            </div>
+            
+            <button onclick="adminGiris()" class="admin-login-btn">Giriş Yap</button>
+        </div>
+        
+        <div class="admin-info">
+            <p><i class="fas fa-shield-alt"></i> Bu alan sadece yetkili yöneticiler içindir.</p>
+            <p style="font-size: 12px; color: #28a745; margin-top: 10px;">
+                <i class="fas fa-info-circle"></i> Test için: admin / admin123
+            </p>
+        </div>
+    </div>
+</div>
+
+<style>
+.admin-login-container {
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 20px;
+    background: #f5f5f5;
+}
+
+.admin-login-box {
+    background: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    max-width: 400px;
+    width: 100%;
+}
+
+.admin-login-box h1 {
+    color: #333;
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 28px;
+}
+
+.admin-description {
+    color: #666;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.admin-login-form .form-group {
+    margin-bottom: 20px;
+}
+
+.admin-login-form label {
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+    font-weight: 500;
+}
+
+.admin-login-form input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e0e0e0;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+.admin-login-form input:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+.admin-login-btn {
+    width: 100%;
+    padding: 14px;
+    background: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.admin-login-btn:hover {
+    background: #218838;
+}
+
+.admin-info {
+    margin-top: 30px;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 5px;
+    border-left: 4px solid #ffc107;
+}
+
+.admin-info p {
+    color: #666;
+    font-size: 14px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.admin-info i {
+    color: #ffc107;
+}
+</style>
+
+<script>
+function adminGiris() {
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+    
+    if (username === 'admin' && password === 'admin123') {
+        localStorage.setItem('userLoggedIn', 'true');
+        localStorage.setItem('userIsAdmin', 'true');
+        localStorage.setItem('adminKullanici', username);
+        alert('✅ Giriş başarılı! Yönetici paneline yönlendiriliyorsunuz.');
+        window.location.href = '/admin/dashboard';
+    } else {
+        alert('❌ Hatalı kullanıcı adı veya şifre!');
+    }
+}
+
+// Enter tuşu ile giriş
+document.addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+        adminGiris();
+    }
+});
+</script>

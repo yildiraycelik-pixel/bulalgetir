@@ -1,0 +1,53 @@
+{
+  "kategoriler": [
+    {
+      "id": 2,
+      "adi": "Elektronik",
+      "slug": "elektronik",
+      "sira": 2
+    },
+    {
+      "id": 3,
+      "adi": "Enerji",
+      "slug": "enerji",
+      "sira": 3
+    },
+    {
+      "id": 4,
+      "adi": "Mekanik",
+      "slug": "mekanik",
+      "sira": 4
+    },
+    {
+      "id": 5,
+      "adi": "Makineler",
+      "slug": "makineler",
+      "sira": 5
+    },
+    {
+      "id": 6,
+      "adi": "El Aletleri",
+      "slug": "el-aletleri",
+      "sira": 6
+    },
+    {
+      "id": 7,
+      "adi": "Montaj Malzemeleri",
+      "slug": "montaj-malzemeleri",
+      "sira": 7
+    },
+    {
+      "id": 8,
+      "adi": "Ev Ürünleri",
+      "slug": "ev-urunleri",
+      "sira": 8
+    },
+    {
+      "id": 9,
+      "adi": "Elektrik",
+      "slug": "elektrik",
+      "sira": 9,
+      "eklenme_tarihi": "2026-03-07T17:35:28.977Z"
+    }
+  ]
+}

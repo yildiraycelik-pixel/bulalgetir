@@ -1,0 +1,230 @@
+﻿<header class="site-header">
+    <div class="header-top">
+        <div class="container">
+            <div class="header-top-content">
+                <div class="social-links">
+                    <a href="https://www.facebook.com/profile.php?id=61586852423277" target="_blank" rel="noopener" class="social-link" aria-label="Facebook">
+                        <span class="fa fa-brands fa-facebook-f"></span>
+                    </a>
+                    <a href="https://x.com/BGetir24397" target="_blank" rel="noopener" class="social-link" aria-label="Twitter/X">
+                        <span class="fa fa-brands fa-twitter"></span>
+                    </a>
+                    <a href="https://www.instagram.com/bulvegetir/" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">
+                        <span class="fa fa-brands fa-instagram"></span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/bul-getir-9107753a6/" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn">
+                        <span class="fa fa-brands fa-linkedin"></span>
+                    </a>
+                </div>
+                
+                <div class="user-actions">
+                    <a href="/kayit-ol" class="user-link register-link">
+                        <i class="fas fa-user-plus"></i> Kayıt Ol
+                    </a>
+                    <span class="separator">|</span>
+                    <a href="/giris-yap" class="user-link login-link">
+                        <i class="fas fa-sign-in-alt"></i> Giriş Yap
+                    </a>
+                    <div class="user-menu" style="display: none;">
+                        <a href="/hesabim" class="user-link">
+                            <i class="fas fa-user"></i> Hesabım
+                        </a>
+                        <a href="/siparislerim" class="user-link">
+                            <i class="fas fa-box"></i> Siparişlerim
+                        </a>
+                        <a href="/cikis" class="user-link logout-link">
+                            <i class="fas fa-sign-out-alt"></i> Çıkış
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="header-main">
+        <div class="container">
+            <div class="header-main-content">
+                <!-- SOL LOGOLAR (Logo gibi) -->
+                <div style="display: flex; align-items: center; gap: 20px; background: rgba(255,255,255,0.15); padding: 8px 15px; border-radius: 40px;">
+                    <a href="https://www.bulalgetir.com" target="_blank" style="color: white; text-decoration: none; font-weight: 600; font-size: 16px; letter-spacing: -0.5px;">BulAlGetir</a>
+                    <span style="color: rgba(255,255,255,0.3);">|</span>
+                    <a href="https://www.bulalgetir.com" target="_blank" style="color: white; text-decoration: none; font-weight: 600; font-size: 16px; letter-spacing: -0.5px;">BulGetir</a>
+                </div>
+                
+                <!-- Arama Kutusu (eski hali) -->
+                <div class="search-box" style="position: relative;">
+                    <div style="position: absolute; left: 10px; top: 50%; transform: translateY(-50%); display: flex; gap: 12px; z-index: 5; background: rgba(255,255,255,0.9); padding: 2px 8px; border-radius: 20px;">
+                        <a href="https://www.bulalgetir.com" target="_blank" style="font-size: 11px; color: #2c5f2d; text-decoration: none; font-weight: 500; white-space: nowrap;">BulAlGetir</a>
+                        <span style="color: #999;">|</span>
+                        <a href="https://www.bulalgetir.com" target="_blank" style="font-size: 11px; color: #2c5f2d; text-decoration: none; font-weight: 500; white-space: nowrap;">BulGetir</a>
+                    </div>
+                    
+                    <form action="/ara" method="GET" style="position: relative;">
+                        <input type="text" name="q" placeholder="Ürün ara..." class="search-input" style="padding-left: 140px; padding-right: 90px;">
+                        
+                        <div style="position: absolute; right: 60px; top: 50%; transform: translateY(-50%); z-index: 5; background: rgba(255,255,255,0.9); padding: 2px 8px; border-radius: 20px;">
+                            <a href="https://www.findbring.com" target="_blank" style="font-size: 11px; color: #2c5f2d; text-decoration: none; font-weight: 500; white-space: nowrap;">FindBring</a>
+                        </div>
+                        
+                        <button type="submit" class="search-button" style="position: absolute; right: 0; top: 0; height: 100%;">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </form>
+                </div>
+                
+                <!-- SAĞ LOGO (Logo gibi) -->
+                <div style="display: flex; align-items: center; background: rgba(255,255,255,0.15); padding: 8px 20px; border-radius: 40px;">
+                    <a href="https://www.findbring.com" target="_blank" style="color: white; text-decoration: none; font-weight: 600; font-size: 16px; letter-spacing: -0.5px;">FindBring</a>
+                </div>
+                
+                <div class="header-cart">
+                    <a href="/sepet" class="cart-link">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                        <span class="cart-text">Sepetim</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="header-nav">
+    <div class="container">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <!-- SOL: Kategori Menüsü -->
+            <div>
+                {% include "partials/kategori-menu.njk" %}
+            </div>
+            
+            <!-- SAĞ: Navbar Menüsü -->
+            <div>
+                <button class="mobile-menu-btn" onclick="toggleMobileMenu()" style="display: none;"><i class="fas fa-bars"></i></button><nav class="main-nav">
+                    <ul>
+                    <li><a href="/">Ana Sayfa</a></li>
+                    <li><a href="/projeler">Projeler</a></li>
+                    <li><a href="/laboratuvar-test">Lab Test</a></li>
+                    <li><a href="/uygulama-atolye">Atölye</a></li>
+                    <li><a href="/hakkimizda">Hakkımızda</a></li>
+                    <li><a href="/iletisim">İletişim</a></li>
+                </ul></nav></div></div></div>
+</header>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const isLoggedIn = localStorage.getItem('userLoggedIn') === 'true';
+    
+    const userActions = document.querySelector('.user-actions');
+    const userMenu = document.querySelector('.user-menu');
+    const registerLink = document.querySelector('.register-link');
+    const loginLink = document.querySelector('.login-link');
+    
+    if (isLoggedIn) {
+        if (userActions) {
+            registerLink.style.display = 'none';
+            loginLink.style.display = 'none';
+            userMenu.style.display = 'inline-flex';
+        }
+    } else {
+        if (userActions) {
+            registerLink.style.display = 'inline';
+            loginLink.style.display = 'inline';
+            userMenu.style.display = 'none';
+        }
+    }
+});
+
+// Mobil menü toggle
+function toggleMobileMenu() {
+    document.querySelector('.main-nav ul').classList.toggle('active');
+}
+
+// Menü dışına tıklandığında kapat
+document.addEventListener('click', function(event) {
+    const menu = document.querySelector('.main-nav ul');
+    const btn = document.querySelector('.mobile-menu-btn');
+    if (menu && btn && !btn.contains(event.target) && !menu.contains(event.target)) {
+        menu.classList.remove('active');
+    }
+});
+
+// Ekran boyutu değiştiğinde
+window.addEventListener('resize', function() {
+    const btn = document.querySelector('.mobile-menu-btn');
+    const menu = document.querySelector('.main-nav ul');
+    if (window.innerWidth > 768) {
+        btn.style.display = 'none';
+        menu.classList.remove('active');
+    } else {
+        btn.style.display = 'block';
+    }
+});
+
+// Sayfa yüklendiğinde
+document.addEventListener('DOMContentLoaded', function() {
+    if (window.innerWidth <= 768) {
+        document.querySelector('.mobile-menu-btn').style.display = 'block';
+    }
+});
+
+// Mobil menü toggle
+function toggleMobileMenu() {
+    document.querySelector('.main-nav ul').classList.toggle('active');
+}
+
+// Menü dışına tıklandığında kapat
+document.addEventListener('click', function(event) {
+    const menu = document.querySelector('.main-nav ul');
+    const btn = document.querySelector('.mobile-menu-btn');
+    if (menu && btn && !btn.contains(event.target) && !menu.contains(event.target)) {
+        menu.classList.remove('active');
+    }
+});
+
+// Ekran boyutu kontrolü
+function checkScreenSize() {
+    const btn = document.querySelector('.mobile-menu-btn');
+    const menu = document.querySelector('.main-nav ul');
+    if (window.innerWidth <= 768) {
+        btn.style.display = 'block';
+    } else {
+        btn.style.display = 'none';
+        menu.classList.remove('active');
+    }
+}
+
+// Sayfa yüklendiğinde ve boyut değiştiğinde
+window.addEventListener('load', checkScreenSize);
+window.addEventListener('resize', checkScreenSize);
+
+// Mobil menü toggle
+function toggleMobileMenu() {
+    document.querySelector('.main-nav ul').classList.toggle('active');
+}
+
+// Menü dışına tıklandığında kapat
+document.addEventListener('click', function(event) {
+    const menu = document.querySelector('.main-nav ul');
+    const btn = document.querySelector('.mobile-menu-btn');
+    if (menu && btn && !btn.contains(event.target) && !menu.contains(event.target)) {
+        menu.classList.remove('active');
+    }
+});
+
+// Ekran boyutu kontrolü
+function checkScreenSize() {
+    const btn = document.querySelector('.mobile-menu-btn');
+    if (window.innerWidth <= 768) {
+        btn.style.display = 'block';
+    } else {
+        btn.style.display = 'none';
+    }
+}
+
+// Sayfa yüklendiğinde ve boyut değiştiğinde
+window.addEventListener('load', checkScreenSize);
+window.addEventListener('resize', checkScreenSize);
+</script>
+
+
+
+

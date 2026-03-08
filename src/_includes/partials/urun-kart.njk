@@ -1,0 +1,22 @@
+﻿<div class="urun-kart">
+    <div class="urun-gorsel">
+        {% if urun.gorseller and urun.gorseller.length > 0 %}
+        <img src="http://localhost:3001{{ urun.gorseller[0] }}" alt="{{ urun.adi }}" loading="lazy">
+        {% else %}
+        <div class="placeholder-gorsel">
+            <i class="fas fa-image"></i>
+        </div>
+        {% endif %}
+        {% if urun.durum == "Sıfır" %}
+        <span class="urun-badge yeni">Yeni</span>
+        {% elseif urun.durum == "İkinci El" %}
+        <span class="urun-badge ikinci-el">İkinci El</span>
+        {% endif %}
+    </div>
+    <div class="urun-bilgi">
+        <h3><a href="/urun/{{ urun.id }}">{{ urun.adi }}</a></h3>
+        <p class="urun-marka">{{ urun.marka }} {{ urun.model }}</p>
+        <p class="urun-fiyat">{{ urun.fiyat }} TL</p>
+        <p class="urun-stok">Stok: {{ urun.stok or 0 }}</p>
+    </div>
+</div>

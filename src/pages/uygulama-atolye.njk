@@ -1,0 +1,516 @@
+﻿---
+layout: base.njk
+title: Uygulama Atölye
+description: Elektromekanik uygulama, eğitim ve atölye hizmetleri
+permalink: /uygulama-atolye/index.html
+---
+
+<style>
+/* ===== UYGULAMA ATÖLYE SAYFASI STİLLERİ ===== */
+.atolye-sayfasi {
+    padding: 60px 0;
+    background: #f8f9fa;
+}
+
+.atolye-sayfasi .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.atolye-sayfasi .sayfa-baslik {
+    text-align: center;
+    color: #2c5f2d;
+    font-size: 42px;
+    margin-bottom: 20px;
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.atolye-sayfasi .sayfa-baslik:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: #e6b17e;
+    border-radius: 2px;
+}
+
+.atolye-sayfasi .atolye-aciklama {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 50px;
+    color: #666;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+/* ===== HİZMET KARTLARI - İKİ BÖLÜMLÜ ===== */
+.atolye-sayfasi .hizmet-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+.atolye-sayfasi .hizmet-kart {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(44, 95, 45, 0.1);
+    transition: all 0.3s;
+    border: 2px solid #2c5f2d;
+    display: flex;
+    height: 280px;
+}
+
+.atolye-sayfasi .hizmet-kart:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(44, 95, 45, 0.2);
+    border-color: #e6b17e;
+}
+
+/* SOL BÖLÜM - İçerik */
+.atolye-sayfasi .hizmet-icerik {
+    width: 50%;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    background: white;
+}
+
+.atolye-sayfasi .hizmet-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #2c5f2d, #1e3f1e);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+    color: white;
+    font-size: 26px;
+}
+
+.atolye-sayfasi .hizmet-icerik h3 {
+    color: #2c5f2d;
+    font-size: 20px;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.atolye-sayfasi .hizmet-icerik p {
+    color: #666;
+    font-size: 14px;
+    line-height: 1.5;
+    flex: 1;
+}
+
+/* SAĞ BÖLÜM - Video */
+.atolye-sayfasi .hizmet-video {
+    width: 50%;
+    background: #1e1e1e;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.atolye-sayfasi .video-thumbnail {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+.atolye-sayfasi .hizmet-kart:hover .video-thumbnail {
+    transform: scale(1.05);
+}
+
+.atolye-sayfasi .play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50px;
+    height: 50px;
+    background: rgba(230, 177, 126, 0.9);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 20px;
+    transition: all 0.3s;
+}
+
+.atolye-sayfasi .hizmet-kart:hover .play-button {
+    background: #e6b17e;
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+.atolye-sayfasi .video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(44, 95, 45, 0.3), rgba(30, 63, 30, 0.3));
+}
+
+/* Video iframe */
+.atolye-sayfasi .video-iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: none;
+}
+
+.atolye-sayfasi .hizmet-video.playing .video-thumbnail,
+.atolye-sayfasi .hizmet-video.playing .play-button,
+.atolye-sayfasi .hizmet-video.playing .video-overlay {
+    display: none;
+}
+
+.atolye-sayfasi .hizmet-video.playing .video-iframe {
+    display: block;
+}
+
+/* ===== EKİPMAN LİSTESİ ===== */
+.atolye-sayfasi .ekipman-section {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(44, 95, 45, 0.1);
+    border: 2px solid #2c5f2d;
+    margin-bottom: 40px;
+}
+
+.atolye-sayfasi .ekipman-section h2 {
+    color: #2c5f2d;
+    font-size: 28px;
+    margin-bottom: 30px;
+    text-align: center;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.atolye-sayfasi .ekipman-section h2:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: #e6b17e;
+    border-radius: 2px;
+}
+
+.atolye-sayfasi .ekipman-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.atolye-sayfasi .ekipman-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    transition: all 0.3s;
+}
+
+.atolye-sayfasi .ekipman-item:hover {
+    background: #e6b17e20;
+    transform: translateX(5px);
+}
+
+.atolye-sayfasi .ekipman-icon {
+    width: 40px;
+    height: 40px;
+    background: #2c5f2d;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 18px;
+    flex-shrink: 0;
+}
+
+.atolye-sayfasi .ekipman-item span {
+    color: #333;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+/* ===== İSTATİSTİKLER ===== */
+.atolye-sayfasi .istatistikler {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.atolye-sayfasi .istatistik-item {
+    text-align: center;
+    padding: 30px 20px;
+    background: linear-gradient(135deg, #2c5f2d, #1e3f1e);
+    border-radius: 20px;
+    color: white;
+    transition: all 0.3s;
+}
+
+.atolye-sayfasi .istatistik-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(44, 95, 45, 0.3);
+}
+
+.atolye-sayfasi .istatistik-sayi {
+    font-size: 42px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #e6b17e;
+}
+
+.atolye-sayfasi .istatistik-label {
+    font-size: 16px;
+    opacity: 0.9;
+}
+
+/* ===== RANDEVU BUTONU ===== */
+.atolye-sayfasi .randevu-section {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.atolye-sayfasi .randevu-btn {
+    display: inline-block;
+    padding: 18px 50px;
+    background: linear-gradient(135deg, #2c5f2d, #1e3f1e);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 18px;
+    font-weight: 600;
+    transition: all 0.3s;
+    border: 2px solid #2c5f2d;
+}
+
+.atolye-sayfasi .randevu-btn:hover {
+    background: transparent;
+    color: #2c5f2d;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(44, 95, 45, 0.3);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 992px) {
+    .atolye-sayfasi .hizmet-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .atolye-sayfasi .ekipman-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .atolye-sayfasi .istatistikler {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .atolye-sayfasi .hizmet-kart {
+        flex-direction: column;
+        height: auto;
+    }
+    
+    .atolye-sayfasi .hizmet-icerik,
+    .atolye-sayfasi .hizmet-video {
+        width: 100%;
+    }
+    
+    .atolye-sayfasi .hizmet-video {
+        height: 200px;
+    }
+    
+    .atolye-sayfasi .sayfa-baslik {
+        font-size: 32px;
+    }
+    
+    .atolye-sayfasi .ekipman-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .atolye-sayfasi .istatistikler {
+        grid-template-columns: 1fr;
+    }
+    
+    .atolye-sayfasi .randevu-btn {
+        width: 100%;
+        padding: 15px;
+    }
+}
+</style>
+
+<div class="atolye-sayfasi">
+    <div class="container">
+        <h1 class="sayfa-baslik">Uygulama Atölye</h1>
+        <p class="atolye-aciklama">
+            Profesyonel ekibimiz ve modern ekipmanlarımızla, projelerinizin uygulama aşamasında yanınızdayız.
+        </p>
+        
+        <!-- Hizmet Kartları - Gerçek YouTube Videoları -->
+        <div class="hizmet-grid">
+            <!-- Kart 1 - Prototip Geliştirme (PLC Programlama) -->
+            <div class="hizmet-kart">
+                <div class="hizmet-icerik">
+                    <div class="hizmet-icon">
+                        <i class="fas fa-microchip"></i>
+                    </div>
+                    <h3>Prototip Geliştirme</h3>
+                    <p>Elektronik kart tasarımı, mekanik prototip üretimi ve test süreçleri. PCB tasarım, 3D baskı, montaj.</p>
+                </div>
+                <div class="hizmet-video" onclick="playVideo(this, 'fnNIDwqt9vE')">
+                    <img class="video-thumbnail" src="https://img.youtube.com/vi/fnNIDwqt9vE/hqdefault.jpg" alt="PLC Programlama">
+                    <div class="video-overlay"></div>
+                    <div class="play-button"><i class="fas fa-play"></i></div>
+                    <iframe class="video-iframe" src="" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+            
+            <!-- Kart 2 - Montaj Hizmeti (Elektrik Montaj) -->
+            <div class="hizmet-kart">
+                <div class="hizmet-icerik">
+                    <div class="hizmet-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Montaj Hizmeti</h3>
+                    <p>Pano montajı, makine montajı, saha montaj ve devreye alma. Elektrik, elektronik ve mekanik montaj.</p>
+                </div>
+                <div class="hizmet-video" onclick="playVideo(this, 'V59Cqtcb5mg')">
+                    <img class="video-thumbnail" src="https://img.youtube.com/vi/V59Cqtcb5mg/hqdefault.jpg" alt="Elektrik Montaj">
+                    <div class="video-overlay"></div>
+                    <div class="play-button"><i class="fas fa-play"></i></div>
+                    <iframe class="video-iframe" src="" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+            
+            <!-- Kart 3 - Bakım ve Onarım (Motor Bakım) -->
+            <div class="hizmet-kart">
+                <div class="hizmet-icerik">
+                    <div class="hizmet-icon">
+                        <i class="fas fa-wrench"></i>
+                    </div>
+                    <h3>Bakım ve Onarım</h3>
+                    <p>Periyodik bakım, arıza tespiti, yedek parça temini ve onarım. Tüm marka ve modeller için servis.</p>
+                </div>
+                <div class="hizmet-video" onclick="playVideo(this, '5zno39f0H-E')">
+                    <img class="video-thumbnail" src="https://img.youtube.com/vi/5zno39f0H-E/hqdefault.jpg" alt="Motor Bakım">
+                    <div class="video-overlay"></div>
+                    <div class="play-button"><i class="fas fa-play"></i></div>
+                    <iframe class="video-iframe" src="" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+            
+            <!-- Kart 4 - Eğitim (Otomasyon Eğitimi) -->
+            <div class="hizmet-kart">
+                <div class="hizmet-icerik">
+                    <div class="hizmet-icon">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <h3>Eğitim</h3>
+                    <p>PLC programlama, otomasyon sistemleri, güç elektroniği eğitimleri. Uygulamalı atölye çalışmaları.</p>
+                </div>
+                <div class="hizmet-video" onclick="playVideo(this, 'fS4-5k8i_iQ')">
+                    <img class="video-thumbnail" src="https://img.youtube.com/vi/fS4-5k8i_iQ/hqdefault.jpg" alt="Otomasyon Eğitimi">
+                    <div class="video-overlay"></div>
+                    <div class="play-button"><i class="fas fa-play"></i></div>
+                    <iframe class="video-iframe" src="" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Ekipman Listesi -->
+        <div class="ekipman-section">
+            <h2>Atölye Ekipmanları</h2>
+            <div class="ekipman-grid">
+                <div class="ekipman-item">
+                    <div class="ekipman-icon"><i class="fas fa-bolt"></i></div>
+                    <span>Lehim istasyonları (Hakko, JBC)</span>
+                </div>
+                <div class="ekipman-item">
+                    <div class="ekipman-icon"><i class="fas fa-chart-line"></i></div>
+                    <span>Osiloskoplar (Rigol, Siglent)</span>
+                </div>
+                <div class="ekipman-item">
+                    <div class="ekipman-icon"><i class="fas fa-battery-full"></i></div>
+                    <span>Güç kaynakları</span>
+                </div>
+                <div class="ekipman-item">
+                    <div class="ekipman-icon"><i class="fas fa-cog"></i></div>
+                    <span>Matkap ve freze tezgahları</span>
+                </div>
+                <div class="ekipman-item">
+                    <div class="ekipman-icon"><i class="fas fa-cube"></i></div>
+                    <span>3D yazıcı</span>
+                </div>
+                <div class="ekipman-item">
+                    <div class="ekipman-icon"><i class="fas fa-ruler"></i></div>
+                    <span>Kalibrasyon cihazları</span>
+                </div>
+                <div class="ekipman-item">
+                    <div class="ekipman-icon"><i class="fas fa-microchip"></i></div>
+                    <span>PLC programlama setleri</span>
+                </div>
+                <div class="ekipman-item">
+                    <div class="ekipman-icon"><i class="fas fa-robot"></i></div>
+                    <span>Robot kol eğitim seti</span>
+                </div>
+                <div class="ekipman-item">
+                    <div class="ekipman-icon"><i class="fas fa-thermometer-half"></i></div>
+                    <span>Termal kamera</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- İstatistikler -->
+        <div class="istatistikler">
+            <div class="istatistik-item">
+                <div class="istatistik-sayi">50+</div>
+                <div class="istatistik-label">Tamamlanan Proje</div>
+            </div>
+            <div class="istatistik-item">
+                <div class="istatistik-sayi">100+</div>
+                <div class="istatistik-label">Mutlu Müşteri</div>
+            </div>
+            <div class="istatistik-item">
+                <div class="istatistik-sayi">15</div>
+                <div class="istatistik-label">Uzman Personel</div>
+            </div>
+            <div class="istatistik-item">
+                <div class="istatistik-sayi">7/24</div>
+                <div class="istatistik-label">Teknik Destek</div>
+            </div>
+        </div>
+        
+        <!-- Randevu Butonu -->
+        <div class="randevu-section">
+            <a href="/iletisim" class="randevu-btn">Atölye Randevusu Al</a>
+        </div>
+    </div>
+</div>
+
+<script>
+function playVideo(element, videoId) {
+    element.classList.add('playing');
+    const iframe = element.querySelector('.video-iframe');
+    iframe.src = 'https://www.youtube.com/embed/' + videoId + '?autoplay=1&rel=0';
+}
+</script>

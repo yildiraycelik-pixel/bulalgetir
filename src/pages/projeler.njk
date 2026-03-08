@@ -1,0 +1,313 @@
+﻿---
+layout: base.njk
+title: Projeler
+description: BulalGetir tarafından gerçekleştirilen elektromekanik projeler
+permalink: /projeler/index.html
+---
+
+<style>
+/* ===== PROJELER SAYFASI STİLLERİ ===== */
+.projeler-sayfasi {
+    padding: 60px 0;
+    background: #f8f9fa;
+}
+
+.projeler-sayfasi .container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.projeler-sayfasi .sayfa-baslik {
+    text-align: center;
+    color: #2c5f2d;
+    font-size: 42px;
+    margin-bottom: 40px;
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.projeler-sayfasi .sayfa-baslik:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: #e6b17e;
+    border-radius: 2px;
+}
+
+/* ===== FİLTRE BUTONLARI ===== */
+.projeler-sayfasi .proje-filtre {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.projeler-sayfasi .filtre-btn {
+    padding: 12px 30px;
+    border: 2px solid #2c5f2d;
+    border-radius: 50px;
+    background: white;
+    color: #2c5f2d;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 3px 10px rgba(44, 95, 45, 0.1);
+}
+
+.projeler-sayfasi .filtre-btn:hover {
+    background: #2c5f2d;
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 20px rgba(44, 95, 45, 0.3);
+}
+
+.projeler-sayfasi .filtre-btn.aktif {
+    background: #2c5f2d;
+    color: white;
+    border-color: #2c5f2d;
+}
+
+/* ===== PROJE KARTLARI ===== */
+.projeler-sayfasi .proje-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.projeler-sayfasi .proje-kart {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(44, 95, 45, 0.1);
+    transition: all 0.3s;
+    border: 2px solid #2c5f2d;
+    display: flex;
+    flex-direction: row;
+    height: 280px;
+}
+
+.projeler-sayfasi .proje-kart:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(44, 95, 45, 0.2);
+    border-color: #e6b17e;
+}
+
+/* ===== GÖRSEL ALANI ===== */
+.projeler-sayfasi .proje-gorsel {
+    width: 650px;
+    height: 100%;
+    overflow: hidden;
+    background: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.projeler-sayfasi .proje-gorsel img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.projeler-sayfasi .proje-kart:hover .proje-gorsel img {
+    transform: scale(1.1);
+}
+
+/* ===== PROJE BİLGİ ALANI ===== */
+.projeler-sayfasi .proje-bilgi {
+    width: 350px;
+    padding: 15px 15px;
+    background: linear-gradient(135deg, #2c5f2d, #1e3f1e);
+    color: white;
+    transition: all 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+
+.projeler-sayfasi .proje-bilgi h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.projeler-sayfasi .proje-musteri {
+    font-size: 12px;
+    margin-bottom: 3px;
+    opacity: 0.95;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.projeler-sayfasi .proje-tarih {
+    font-size: 11px;
+    margin-bottom: 8px;
+    opacity: 0.9;
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    padding: 2px 8px;
+    border-radius: 20px;
+    align-self: flex-start;
+}
+
+.projeler-sayfasi .proje-aciklama {
+    font-size: 12px;
+    margin-bottom: 8px;
+    line-height: 1.3;
+    opacity: 0.95;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    height: 45px;
+}
+
+.projeler-sayfasi .btn-detay {
+    display: inline-block;
+    padding: 5px 15px;
+    background: white;
+    color: #2c5f2d;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: all 0.3s;
+    border: 2px solid white;
+    text-align: center;
+    align-self: flex-start;
+    font-size: 12px;
+    margin-top: auto;
+}
+
+.projeler-sayfasi .btn-detay:hover {
+    background: transparent;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .projeler-sayfasi .proje-kart {
+        flex-direction: column;
+        height: auto;
+        width: 100%;
+    }
+    
+    .projeler-sayfasi .proje-gorsel {
+        width: 100%;
+        height: 200px;
+    }
+    
+    .projeler-sayfasi .proje-bilgi {
+        width: 100%;
+        padding: 15px;
+    }
+}
+</style>
+
+<div class="projeler-sayfasi">
+    <div class="container">
+        <h1 class="sayfa-baslik">Projeler</h1>
+        
+        <!-- Filtre Butonları -->
+        <div class="proje-filtre">
+            <button class="filtre-btn aktif" data-kategori="tumu">Tümü</button>
+            <button class="filtre-btn" data-kategori="otomasyon">Otomasyon</button>
+            <button class="filtre-btn" data-kategori="enerji">Enerji</button>
+            <button class="filtre-btn" data-kategori="mekanik">Mekanik</button>
+            <button class="filtre-btn" data-kategori="elektrik">Elektrik</button>
+        </div>
+        
+        <!-- Proje Kartları -->
+        <div class="proje-grid">
+            <!-- Proje 1 - Otomasyon (otomasyon.jpg) -->
+            <div class="proje-kart" data-kategori="otomasyon">
+                <div class="proje-gorsel">
+                    <img src="/assets/images/otomasyon.jpg" alt="Otomasyon Projesi">
+                </div>
+                <div class="proje-bilgi">
+                    <h3>Fabrika Otomasyon Sistemi</h3>
+                    <p class="proje-musteri">ABC Fabrika</p>
+                    <span class="proje-tarih">2025</span>
+                    <p class="proje-aciklama">Robot kol, PLC, SCADA entegrasyonu ile tam otomatik üretim hattı.</p>
+                    <a href="/projeler/fabrika-otomasyon" class="btn-detay">İncele</a>
+                </div>
+            </div>
+            
+            <!-- Proje 2 - Enerji (fabrika.png yedeğe dönüştü) -->
+            <div class="proje-kart" data-kategori="enerji">
+                <div class="proje-gorsel">
+                    <img src="/assets/images/fabrika.png" alt="Enerji Projesi">
+                </div>
+                <div class="proje-bilgi">
+                    <h3>Güneş Enerji Santrali</h3>
+                    <p class="proje-musteri">XYZ Enerji</p>
+                    <span class="proje-tarih">2024</span>
+                    <p class="proje-aciklama">1 MW GES, 2500 panel, 10 inverter ile yıllık 1.5 MWh üretim.</p>
+                    <a href="/projeler/ges-projesi" class="btn-detay">İncele</a>
+                </div>
+            </div>
+            
+            <!-- Proje 3 - Mekanik -->
+            <div class="proje-kart" data-kategori="mekanik">
+                <div class="proje-gorsel">
+                    <div style="width:100%; height:100%; display:flex; align-items:center; justify-content:center; background: linear-gradient(135deg, #2c5f2d20, #1e3f1e30); font-size:60px;">⚙️</div>
+                </div>
+                <div class="proje-bilgi">
+                    <h3>CNC İşleme Merkezi</h3>
+                    <p class="proje-musteri">DEF Makine</p>
+                    <span class="proje-tarih">2024</span>
+                    <p class="proje-aciklama">5 eksen CNC, 12000 rpm, 40 takım, ±0.005mm hassasiyet.</p>
+                    <a href="/projeler/cnc-isleme" class="btn-detay">İncele</a>
+                </div>
+            </div>
+            
+            <!-- Proje 4 - Elektrik -->
+            <div class="proje-kart" data-kategori="elektrik">
+                <div class="proje-gorsel">
+                    <div style="width:100%; height:100%; display:flex; align-items:center; justify-content:center; background: linear-gradient(135deg, #2c5f2d20, #1e3f1e30); font-size:60px;">⚡</div>
+                </div>
+                <div class="proje-bilgi">
+                    <h3>Trafo Merkezi Modernizasyonu</h3>
+                    <p class="proje-musteri">GHI Elektrik</p>
+                    <span class="proje-tarih">2023</span>
+                    <p class="proje-aciklama">34.5 kV, 2x25 MVA trafo, SCADA uzaktan izleme.</p>
+                    <a href="/projeler/trafo-modernizasyon" class="btn-detay">İncele</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+// Filtreleme
+document.querySelectorAll('.filtre-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+        document.querySelectorAll('.filtre-btn').forEach(b => b.classList.remove('aktif'));
+        this.classList.add('aktif');
+        
+        const kategori = this.dataset.kategori;
+        document.querySelectorAll('.proje-kart').forEach(kart => {
+            if (kategori === 'tumu' || kart.dataset.kategori === kategori) {
+                kart.style.display = 'flex';
+            } else {
+                kart.style.display = 'none';
+            }
+        });
+    });
+});
+</script>

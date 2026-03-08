@@ -1,0 +1,44 @@
+﻿---
+layout: base.njk
+---
+
+<div class="urun-detay-sayfasi">
+    <h1>{{ urun.adi }}</h1>
+    
+    <div class="urun-detay-grid">
+        <div class="urun-gorseller">
+            {% if urun.gorseller %}
+                {% for gorsel in urun.gorseller %}
+                <img src="{{ gorsel }}" alt="{{ urun.adi }}">
+                {% endfor %}
+            {% else %}
+                <div class="placeholder-gorsel">Görsel Yok</div>
+            {% endif %}
+        </div>
+        
+        <div class="urun-bilgiler">
+            <div class="urun-fiyat">{{ urun.fiyat }} TL</div>
+            <div class="urun-durum">Durum: {{ urun.durum }}</div>
+            <div class="urun-marka">Marka: {{ urun.marka }}</div>
+            <div class="urun-model">Model: {{ urun.model }}</div>
+            <div class="urun-yil">Yıl: {{ urun.yil }}</div>
+            
+            <div class="urun-aciklama">
+                <h3>Açıklama</h3>
+                <p>{{ urun.aciklama }}</p>
+            </div>
+            
+            <div class="urun-ozellikler">
+                <h3>Teknik Özellikler</h3>
+                <ul>
+                    {% for ozellik, deger in urun.ozellikler %}
+                    <li><strong>{{ ozellik }}:</strong> {{ deger }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            
+            <button class="sepete-ekle">Sepete Ekle</button>
+            <button class="hemen-satinal">Hemen Satın Al</button>
+        </div>
+    </div>
+</div>

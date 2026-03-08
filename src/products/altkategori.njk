@@ -1,0 +1,31 @@
+﻿---
+layout: base.njk
+---
+
+<div class="altkategori-sayfasi">
+    <h1>{{ altKategori.adi }}</h1>
+    
+    <p>{{ kategori.adi }} > {{ altKategori.adi }}</p>
+    
+    {% set sonAltKategoriler = sonaltkategoriler.sonaltkategoriler | sonAltKategorilerByAltKategoriId(altKategori.id) %}
+    
+    <div class="son-alt-kategori-grid">
+        {% for sonAlt in sonAltKategoriler %}
+        <div class="son-alt-kategori-kart">
+            <h3><a href="/{{ kategori.slug }}/{{ altKategori.slug }}/{{ sonAlt.slug }}/">{{ sonAlt.adi }}</a></h3>
+            
+            <div class="urun-list">
+                {% for urun in urunler.urunler %}
+                    {% if urun.sonaltkategori_id == sonAlt.id %}
+                    <div class="urun-mini-kart">
+                        <a href="/{{ kategori.slug }}/{{ altKategori.slug }}/{{ sonAlt.slug }}/{{ urun.slug }}/">
+                            {{ urun.adi }}
+                        </a>
+                    </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>

@@ -1,0 +1,19 @@
+﻿{
+  "name": "BulalGetir",
+  "url": "https://bulalgetir.com",
+  "description": "İkinci el malzeme satışı, elektromekanik proje tasarım ve uygulama platformu",
+  "author": "BulalGetir Ekibi",
+  "locale": "tr_TR",
+  "social": {
+    "facebook": "https://facebook.com/bulalgetir",
+    "twitter": "https://twitter.com/bulalgetir",
+    "instagram": "https://instagram.com/bulalgetir",
+    "linkedin": "https://linkedin.com/company/bulalgetir",
+    "youtube": "https://youtube.com/bulalgetir"
+  },
+  "admin": {
+    "email": "admin@bulalgetir.com",
+    "panel": "/admin",
+    "siteTitle": "BulalGetir Yönetim Paneli"
+  }
+}

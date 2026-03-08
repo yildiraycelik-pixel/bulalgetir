@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ana Sayfa | BulalGetir</title>
+    <meta name="description" content="BulalGetir - İkinci el malzeme satışı, elektromekanik proje tasarım ve uygulama platformu">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+    ﻿<header class="site-header">
+    <div class="header-top">
+        <div class="container">
+            <div class="header-top-content">
+                <div class="social-links">
+                    <a href="https://facebook.com/bulalgetir" target="_blank" rel="noopener" class="social-link">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://twitter.com/bulalgetir" target="_blank" rel="noopener" class="social-link">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://instagram.com/bulalgetir" target="_blank" rel="noopener" class="social-link">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://linkedin.com/company/bulalgetir" target="_blank" rel="noopener" class="social-link">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://youtube.com/bulalgetir" target="_blank" rel="noopener" class="social-link">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+                
+                <div class="user-actions">
+                    <a href="/kayit-ol" class="user-link register-link">
+                        <i class="fas fa-user-plus"></i> Kayıt Ol
+                    </a>
+                    <span class="separator">|</span>
+                    <a href="/giris-yap" class="user-link login-link">
+                        <i class="fas fa-sign-in-alt"></i> Giriş Yap
+                    </a>
+                    <div class="user-menu" style="display: none;">
+                        <a href="/hesabim" class="user-link">
+                            <i class="fas fa-user"></i> Hesabım
+                        </a>
+                        <a href="/siparislerim" class="user-link">
+                            <i class="fas fa-box"></i> Siparişlerim
+                        </a>
+                        <a href="/cikis" class="user-link logout-link">
+                            <i class="fas fa-sign-out-alt"></i> Çıkış
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="header-main">
+        <div class="container">
+            <div class="header-main-content">
+                <div class="logo">
+                    <a href="/">
+                        <h1>BulalGetir</h1>
+                    </a>
+                </div>
+                
+                <div class="search-box">
+                    <form action="/ara" method="GET">
+                        <input type="text" name="q" placeholder="Ürün ara..." class="search-input">
+                        <button type="submit" class="search-button">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </form>
+                </div>
+                
+                <div class="header-cart">
+                    <a href="/sepet" class="cart-link">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                        <span class="cart-text">Sepetim</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="header-nav">
+        <div class="container">
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="/">Ana Sayfa</a></li>
+                    <li class="has-dropdown">
+                        <a href="/kategoriler">Kategoriler <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-menu">
+                            <div class="mega-menu">
+                                <div class="mega-menu-grid">
+                                    
+                                    <div class="mega-menu-column">
+                                        <h4><a href="/elektrik/">Elektrik</a></h4>
+                                        <ul>
+                                            
+                                            
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="mega-menu-column">
+                                        <h4><a href="/elektronik/">Elektronik</a></h4>
+                                        <ul>
+                                            
+                                            
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="mega-menu-column">
+                                        <h4><a href="/enerji/">Enerji</a></h4>
+                                        <ul>
+                                            
+                                            
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="mega-menu-column">
+                                        <h4><a href="/mekanik/">Mekanik</a></h4>
+                                        <ul>
+                                            
+                                            
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="mega-menu-column">
+                                        <h4><a href="/makineler/">Makineler</a></h4>
+                                        <ul>
+                                            
+                                            
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="mega-menu-column">
+                                        <h4><a href="/el-aletleri/">El Aletleri</a></h4>
+                                        <ul>
+                                            
+                                            
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="mega-menu-column">
+                                        <h4><a href="/montaj-malzemeleri/">Montaj Malzemeleri</a></h4>
+                                        <ul>
+                                            
+                                            
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="mega-menu-column">
+                                        <h4><a href="/ev-urunleri/">Ev Ürünleri</a></h4>
+                                        <ul>
+                                            
+                                            
+                                        </ul>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li><a href="/projeler">Projeler</a></li>
+                    <li><a href="/laboratuvar-test">Lab Test</a></li>
+                    <li><a href="/uygulama-atolye">Atölye</a></li>
+                    <li><a href="/hakkimizda">Hakkımızda</a></li>
+                    <li><a href="/iletisim">İletişim</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
+
+<!-- Admin Paneli Butonu TAMAMEN KALDIRILDI -->
+
+<script>
+// Kullanıcı oturum durumunu kontrol et
+document.addEventListener('DOMContentLoaded', function() {
+    const isLoggedIn = localStorage.getItem('userLoggedIn') === 'true';
+    
+    const userActions = document.querySelector('.user-actions');
+    const userMenu = document.querySelector('.user-menu');
+    const registerLink = document.querySelector('.register-link');
+    const loginLink = document.querySelector('.login-link');
+    
+    if (isLoggedIn) {
+        if (userActions) {
+            registerLink.style.display = 'none';
+            loginLink.style.display = 'none';
+            userMenu.style.display = 'inline-flex';
+        }
+    } else {
+        if (userActions) {
+            registerLink.style.display = 'inline';
+            loginLink.style.display = 'inline';
+            userMenu.style.display = 'none';
+        }
+    }
+});
+</script>
+
+    
+    <main class="main-content">
+        
+<div class="anasayfa">
+    <!-- Hero Banner -->
+    <section class="hero" style="margin-bottom: 5px;">
+        <div class="container">
+            <h1>Elektromekanik Çözümlerin Adresi</h1>
+            <p>İkinci el malzeme, proje tasarım ve uygulama hizmetleri</p>
+            <div class="hero-butonlar">
+                <a href="/kategoriler" class="btn-alisveris">Alışverişe Başla</a>
+                <a href="/projeler" class="btn-projeler">Projelerimiz</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Kategoriler - Yaprak formunda butonlar -->
+    <section class="ana-kategoriler" style="padding: 0 0 30px 0; margin-top: -10px;">
+        <div class="container">
+            <div style="display: flex; flex-wrap: wrap; gap: 12px; justify-content: center;">
+                
+                <a href="/elektrik/" style="
+                    display: inline-block;
+                    padding: 6px 20px;
+                    background: #2c5f2d;
+                    color: white;
+                    text-decoration: none;
+                    font-size: 14px;
+                    font-weight: 400;
+                    position: relative;
+                    transition: all 0.3s;
+                    border-radius: 70% 30% 60% 40% / 50% 40% 60% 50%;
+                    box-shadow: 0 3px 6px rgba(44, 95, 45, 0.2);
+                " onmouseover="this.style.background='#1e3f1e'; this.style.transform='scale(1.05)';" 
+                   onmouseout="this.style.background='#2c5f2d'; this.style.transform='scale(1)';">
+                    Elektrik
+                </a>
+                
+                <a href="/elektronik/" style="
+                    display: inline-block;
+                    padding: 6px 20px;
+                    background: #2c5f2d;
+                    color: white;
+                    text-decoration: none;
+                    font-size: 14px;
+                    font-weight: 400;
+                    position: relative;
+                    transition: all 0.3s;
+                    border-radius: 70% 30% 60% 40% / 50% 40% 60% 50%;
+                    box-shadow: 0 3px 6px rgba(44, 95, 45, 0.2);
+                " onmouseover="this.style.background='#1e3f1e'; this.style.transform='scale(1.05)';" 
+                   onmouseout="this.style.background='#2c5f2d'; this.style.transform='scale(1)';">
+                    Elektronik
+                </a>
+                
+                <a href="/enerji/" style="
+                    display: inline-block;
+                    padding: 6px 20px;
+                    background: #2c5f2d;
+                    color: white;
+                    text-decoration: none;
+                    font-size: 14px;
+                    font-weight: 400;
+                    position: relative;
+                    transition: all 0.3s;
+                    border-radius: 70% 30% 60% 40% / 50% 40% 60% 50%;
+                    box-shadow: 0 3px 6px rgba(44, 95, 45, 0.2);
+                " onmouseover="this.style.background='#1e3f1e'; this.style.transform='scale(1.05)';" 
+                   onmouseout="this.style.background='#2c5f2d'; this.style.transform='scale(1)';">
+                    Enerji
+                </a>
+                
+                <a href="/mekanik/" style="
+                    display: inline-block;
+                    padding: 6px 20px;
+                    background: #2c5f2d;
+                    color: white;
+                    text-decoration: none;
+                    font-size: 14px;
+                    font-weight: 400;
+                    position: relative;
+                    transition: all 0.3s;
+                    border-radius: 70% 30% 60% 40% / 50% 40% 60% 50%;
+                    box-shadow: 0 3px 6px rgba(44, 95, 45, 0.2);
+                " onmouseover="this.style.background='#1e3f1e'; this.style.transform='scale(1.05)';" 
+                   onmouseout="this.style.background='#2c5f2d'; this.style.transform='scale(1)';">
+                    Mekanik
+                </a>
+                
+                <a href="/makineler/" style="
+                    display: inline-block;
+                    padding: 6px 20px;
+                    background: #2c5f2d;
+                    color: white;
+                    text-decoration: none;
+                    font-size: 14px;
+                    font-weight: 400;
+                    position: relative;
+                    transition: all 0.3s;
+                    border-radius: 70% 30% 60% 40% / 50% 40% 60% 50%;
+                    box-shadow: 0 3px 6px rgba(44, 95, 45, 0.2);
+                " onmouseover="this.style.background='#1e3f1e'; this.style.transform='scale(1.05)';" 
+                   onmouseout="this.style.background='#2c5f2d'; this.style.transform='scale(1)';">
+                    Makineler
+                </a>
+                
+                <a href="/el-aletleri/" style="
+                    display: inline-block;
+                    padding: 6px 20px;
+                    background: #2c5f2d;
+                    color: white;
+                    text-decoration: none;
+                    font-size: 14px;
+                    font-weight: 400;
+                    position: relative;
+                    transition: all 0.3s;
+                    border-radius: 70% 30% 60% 40% / 50% 40% 60% 50%;
+                    box-shadow: 0 3px 6px rgba(44, 95, 45, 0.2);
+                " onmouseover="this.style.background='#1e3f1e'; this.style.transform='scale(1.05)';" 
+                   onmouseout="this.style.background='#2c5f2d'; this.style.transform='scale(1)';">
+                    El Aletleri
+                </a>
+                
+                <a href="/montaj-malzemeleri/" style="
+                    display: inline-block;
+                    padding: 6px 20px;
+                    background: #2c5f2d;
+                    color: white;
+                    text-decoration: none;
+                    font-size: 14px;
+                    font-weight: 400;
+                    position: relative;
+                    transition: all 0.3s;
+                    border-radius: 70% 30% 60% 40% / 50% 40% 60% 50%;
+                    box-shadow: 0 3px 6px rgba(44, 95, 45, 0.2);
+                " onmouseover="this.style.background='#1e3f1e'; this.style.transform='scale(1.05)';" 
+                   onmouseout="this.style.background='#2c5f2d'; this.style.transform='scale(1)';">
+                    Montaj Malzemeleri
+                </a>
+                
+                <a href="/ev-urunleri/" style="
+                    display: inline-block;
+                    padding: 6px 20px;
+                    background: #2c5f2d;
+                    color: white;
+                    text-decoration: none;
+                    font-size: 14px;
+                    font-weight: 400;
+                    position: relative;
+                    transition: all 0.3s;
+                    border-radius: 70% 30% 60% 40% / 50% 40% 60% 50%;
+                    box-shadow: 0 3px 6px rgba(44, 95, 45, 0.2);
+                " onmouseover="this.style.background='#1e3f1e'; this.style.transform='scale(1.05)';" 
+                   onmouseout="this.style.background='#2c5f2d'; this.style.transform='scale(1)';">
+                    Ev Ürünleri
+                </a>
+                
+            </div>
+        </div>
+    </section>
+    
+    <!-- Hizmetler - Buton formatında (başlıksız) -->
+    <section class="hizmetler" style="margin-top: -10px;">
+        <div class="container">
+            <div style="display: flex; flex-wrap: wrap; gap: 12px; justify-content: center;">
+                <a href="/ikinci-el" style="
+                    display: inline-block;
+                    padding: 6px 20px;
+                    background: #2c5f2d;
+                    color: white;
+                    text-decoration: none;
+                    font-size: 14px;
+                    font-weight: 400;
+                    border-radius: 70% 30% 60% 40% / 50% 40% 60% 50%;
+                    box-shadow: 0 3px 6px rgba(44, 95, 45, 0.2);
+                    transition: all 0.3s;
+                " onmouseover="this.style.background='#1e3f1e'; this.style.transform='scale(1.05)';" 
+                   onmouseout="this.style.background='#2c5f2d'; this.style.transform='scale(1)';">
+                    İkinci El Malzeme
+                </a>
+                <a href="/proje-tasarim" style="
+                    display: inline-block;
+                    padding: 6px 20px;
+                    background: #2c5f2d;
+                    color: white;
+                    text-decoration: none;
+                    font-size: 14px;
+                    font-weight: 400;
+                    border-radius: 70% 30% 60% 40% / 50% 40% 60% 50%;
+                    box-shadow: 0 3px 6px rgba(44, 95, 45, 0.2);
+                    transition: all 0.3s;
+                " onmouseover="this.style.background='#1e3f1e'; this.style.transform='scale(1.05)';" 
+                   onmouseout="this.style.background='#2c5f2d'; this.style.transform='scale(1)';">
+                    Proje Tasarım
+                </a>
+                <a href="/uygulama-atolye" style="
+                    display: inline-block;
+                    padding: 6px 20px;
+                    background: #2c5f2d;
+                    color: white;
+                    text-decoration: none;
+                    font-size: 14px;
+                    font-weight: 400;
+                    border-radius: 70% 30% 60% 40% / 50% 40% 60% 50%;
+                    box-shadow: 0 3px 6px rgba(44, 95, 45, 0.2);
+                    transition: all 0.3s;
+                " onmouseover="this.style.background='#1e3f1e'; this.style.transform='scale(1.05)';" 
+                   onmouseout="this.style.background='#2c5f2d'; this.style.transform='scale(1)';">
+                    Uygulama Atölye
+                </a>
+                <a href="/laboratuvar-test" style="
+                    display: inline-block;
+                    padding: 6px 20px;
+                    background: #2c5f2d;
+                    color: white;
+                    text-decoration: none;
+                    font-size: 14px;
+                    font-weight: 400;
+                    border-radius: 70% 30% 60% 40% / 50% 40% 60% 50%;
+                    box-shadow: 0 3px 6px rgba(44, 95, 45, 0.2);
+                    transition: all 0.3s;
+                " onmouseover="this.style.background='#1e3f1e'; this.style.transform='scale(1.05)';" 
+                   onmouseout="this.style.background='#2c5f2d'; this.style.transform='scale(1)';">
+                    Laboratuvar Test
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Son Eklenen Ürünler -->
+    <section class="son-urunler">
+        <div class="container">
+            <h2>Son Eklenen Ürünler</h2>
+            <div class="urun-grid">
+                
+                <div class="urun-kart">
+                    <div class="urun-gorsel">
+                        <img src="/assets/images/Ac-servo-motor-ve-surucusu.webp" alt="AC Servo Motor ve Sürücüsü" loading="lazy">
+                        
+                        <span class="urun-badge ikinci-el">İkinci El</span>
+                        
+                    </div>
+                    <div class="urun-bilgi">
+                        <h3><a href="#">AC Servo Motor ve Sürücüsü</a></h3>
+                        <p class="urun-marka">Delta ASD-A2-2023</p>
+                        <p class="urun-fiyat">3450 TL</p>
+                    </div>
+                </div>
+                
+                <div class="urun-kart">
+                    <div class="urun-gorsel">
+                        <img src="/assets/images/30V-Led-Driver.webp" alt="30V Led Driver" loading="lazy">
+                        
+                        <span class="urun-badge yeni">Yeni</span>
+                        
+                    </div>
+                    <div class="urun-bilgi">
+                        <h3><a href="#">30V Led Driver</a></h3>
+                        <p class="urun-marka">Mean Well HLG-320H-30A</p>
+                        <p class="urun-fiyat">450 TL</p>
+                    </div>
+                </div>
+                
+                <div class="urun-kart">
+                    <div class="urun-gorsel">
+                        <img src="/assets/images/380v-1hp-ac-general-electric.webp" alt="380V 1HP AC Motor" loading="lazy">
+                        
+                        <span class="urun-badge ikinci-el">İkinci El</span>
+                        
+                    </div>
+                    <div class="urun-bilgi">
+                        <h3><a href="#">380V 1HP AC Motor</a></h3>
+                        <p class="urun-marka">General Electric 5KH32GN</p>
+                        <p class="urun-fiyat">1250 TL</p>
+                    </div>
+                </div>
+                
+                <div class="urun-kart">
+                    <div class="urun-gorsel">
+                        <img src="/assets/images/acil-durum-aydinlatma.webp" alt="Acil Durum Aydınlatma Armatürü" loading="lazy">
+                        
+                        <span class="urun-badge yeni">Yeni</span>
+                        
+                    </div>
+                    <div class="urun-bilgi">
+                        <h3><a href="#">Acil Durum Aydınlatma Armatürü</a></h3>
+                        <p class="urun-marka">Tekno Led ACL-2000</p>
+                        <p class="urun-fiyat">350 TL</p>
+                    </div>
+                </div>
+                
+                <div class="urun-kart">
+                    <div class="urun-gorsel">
+                        <img src="/assets/images/agir-hizmet-mengenesi.webp" alt="Ağır Hizmet Mengenesi" loading="lazy">
+                        
+                        <span class="urun-badge ikinci-el">İkinci El</span>
+                        
+                    </div>
+                    <div class="urun-bilgi">
+                        <h3><a href="#">Ağır Hizmet Mengenesi</a></h3>
+                        <p class="urun-marka">Kurt MEGA-150</p>
+                        <p class="urun-fiyat">2850 TL</p>
+                    </div>
+                </div>
+                
+                <div class="urun-kart">
+                    <div class="urun-gorsel">
+                        <img src="/assets/images/aku-jel.webp" alt="Jel Akü 12V 100Ah" loading="lazy">
+                        
+                        <span class="urun-badge yeni">Yeni</span>
+                        
+                    </div>
+                    <div class="urun-bilgi">
+                        <h3><a href="#">Jel Akü 12V 100Ah</a></h3>
+                        <p class="urun-marka">İnci Akü JEL-12100</p>
+                        <p class="urun-fiyat">2950 TL</p>
+                    </div>
+                </div>
+                
+                <div class="urun-kart">
+                    <div class="urun-gorsel">
+                        <img src="/assets/images/lifepo4-battery.webp" alt="LiFePO4 Pil 12V 100Ah" loading="lazy">
+                        
+                        <span class="urun-badge yeni">Yeni</span>
+                        
+                    </div>
+                    <div class="urun-bilgi">
+                        <h3><a href="#">LiFePO4 Pil 12V 100Ah</a></h3>
+                        <p class="urun-marka">Winston LFP-100Ah</p>
+                        <p class="urun-fiyat">8450 TL</p>
+                    </div>
+                </div>
+                
+                <div class="urun-kart">
+                    <div class="urun-gorsel">
+                        <img src="/assets/images/tel-duzeltme.webp" alt="Mekanik Tel Düzeltme Ekipmanı" loading="lazy">
+                        
+                        <span class="urun-badge ikinci-el">İkinci El</span>
+                        
+                    </div>
+                    <div class="urun-bilgi">
+                        <h3><a href="#">Mekanik Tel Düzeltme Ekipmanı</a></h3>
+                        <p class="urun-marka">Metabo RW-630</p>
+                        <p class="urun-fiyat">12450 TL</p>
+                    </div>
+                </div>
+                
+                <div class="urun-kart">
+                    <div class="urun-gorsel">
+                        <img src="/assets/images/manyetik-kilit.webp" alt="Manyetik Kilit 60kg" loading="lazy">
+                        
+                        <span class="urun-badge yeni">Yeni</span>
+                        
+                    </div>
+                    <div class="urun-bilgi">
+                        <h3><a href="#">Manyetik Kilit 60kg</a></h3>
+                        <p class="urun-marka">Securitron MAG-60</p>
+                        <p class="urun-fiyat">450 TL</p>
+                    </div>
+                </div>
+                
+                <div class="urun-kart">
+                    <div class="urun-gorsel">
+                        <img src="/assets/images/mini-pc-raspberry-pi.webp" alt="Raspberry Pi 4 8GB" loading="lazy">
+                        
+                        <span class="urun-badge yeni">Yeni</span>
+                        
+                    </div>
+                    <div class="urun-bilgi">
+                        <h3><a href="#">Raspberry Pi 4 8GB</a></h3>
+                        <p class="urun-marka">Raspberry Pi 4 Model B 8GB</p>
+                        <p class="urun-fiyat">3250 TL</p>
+                    </div>
+                </div>
+                
+                <div class="urun-kart">
+                    <div class="urun-gorsel">
+                        <img src="/assets/images/step-motor.webp" alt="Step Motor Sürücü" loading="lazy">
+                        
+                        <span class="urun-badge yeni">Yeni</span>
+                        
+                    </div>
+                    <div class="urun-bilgi">
+                        <h3><a href="#">Step Motor Sürücü</a></h3>
+                        <p class="urun-marka">Leadshine DM542</p>
+                        <p class="urun-fiyat">850 TL</p>
+                    </div>
+                </div>
+                
+                <div class="urun-kart">
+                    <div class="urun-gorsel">
+                        <img src="/assets/images/solar-panel.webp" alt="Solar Panel 100W" loading="lazy">
+                        
+                        <span class="urun-badge yeni">Yeni</span>
+                        
+                    </div>
+                    <div class="urun-bilgi">
+                        <h3><a href="#">Solar Panel 100W</a></h3>
+                        <p class="urun-marka">LG 100W Monokristal</p>
+                        <p class="urun-fiyat">1250 TL</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+</div>
+
+<style>
+/* Hero margin azaltıldı */
+.hero {
+    margin-bottom: 5px !important;
+}
+
+/* Kategori ve hizmet butonları aynı stilde */
+.ana-kategoriler a, .hizmetler a {
+    transition: all 0.3s ease;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .ana-kategoriler {
+        margin-top: -5px !important;
+    }
+    .ana-kategoriler a, .hizmetler a {
+        padding: 5px 16px !important;
+        font-size: 12px !important;
+    }
+}
+</style>
+
+    </main>
+    
+    ﻿<footer class="site-footer" style="position: relative; overflow: hidden;">
+    <!-- BİZ KİM GÖRSELİ - SAĞ ORTA, 350px -->
+    <div style="position: absolute; right: 20px; top: 50%; transform: translateY(-50%); z-index: 1; width: 350px;">
+        <img src="/assets/images/biz-kim.png" alt="Biz Kim" style="width: 100%; height: auto; display: block;">
+    </div>
+    
+    <div class="container" style="position: relative; z-index: 2;">
+        <div class="footer-grid">
+            <div class="footer-section">
+                <h3>BulalGetir</h3>
+                <p>İkinci el malzeme satışı, elektromekanik proje tasarım ve uygulama platformu</p>
+                <p>&copy; 2026 Tüm hakları saklıdır.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Kategoriler</h4>
+                <ul>
+                    
+                    <li><a href="/elektrik/">Elektrik</a></li>
+                    
+                    <li><a href="/elektronik/">Elektronik</a></li>
+                    
+                    <li><a href="/enerji/">Enerji</a></li>
+                    
+                    <li><a href="/mekanik/">Mekanik</a></li>
+                    
+                    <li><a href="/makineler/">Makineler</a></li>
+                    
+                    <li><a href="/el-aletleri/">El Aletleri</a></li>
+                    
+                    <li><a href="/montaj-malzemeleri/">Montaj Malzemeleri</a></li>
+                    
+                    <li><a href="/ev-urunleri/">Ev Ürünleri</a></li>
+                    
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Kurumsal</h4>
+                <ul>
+                    <li><a href="/hakkimizda/">Hakkımızda</a></li>
+                    <li><a href="/projeler/">Projeler</a></li>
+                    <li><a href="/laboratuvar-test/">Laboratuvar Test</a></li>
+                    <li><a href="/uygulama-atolye/">Uygulama Atölye</a></li>
+                    <li><a href="/iletisim/">İletişim</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <script src="/assets/js/main.js"></script>
+</body>
+</html>

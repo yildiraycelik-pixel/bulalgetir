@@ -1,0 +1,108 @@
+{
+  "urunler": [
+    {
+      "id": 1,
+      "adi": "AC Servo Motor",
+      "slug": "ac-servo-motor",
+      "kategori_id": 9,
+      "altkategori_id": 102,
+      "sonaltkategori_id": 10201,
+      "fiyat": 3450,
+      "durum": "İkinci El",
+      "marka": "Delta",
+      "model": "ASD-A2",
+      "yil": "2022",
+      "aciklama": "400W AC servo motor ve sürücü paketi",
+      "gorsel": "/assets/images/Ac-servo-motor-ve-surucusu.webp",
+      "stok": 5,
+      "gorseller": [
+        "/uploads/urunler/urun-1772908222921-93968067.webp"
+      ],
+      "guncellenme_tarihi": "2026-03-07T19:03:01.941Z"
+    },
+    {
+      "id": 2,
+      "adi": "30V Led Driver",
+      "slug": "30v-led-driver",
+      "kategori_id": 2,
+      "altkategori_id": 203,
+      "sonaltkategori_id": 20303,
+      "fiyat": 450,
+      "durum": "Sıfır",
+      "marka": "Mean Well",
+      "model": "HLG-320H",
+      "yil": 2024,
+      "aciklama": "320W 30V sabit gerilim LED sürücü",
+      "gorsel": "/assets/images/30V-Led-Driver.webp",
+      "stok": 12
+    },
+    {
+      "id": 3,
+      "adi": "380V 1HP AC Motor",
+      "slug": "380v-1hp-ac-motor",
+      "kategori_id": 9,
+      "altkategori_id": 102,
+      "sonaltkategori_id": 10201,
+      "fiyat": 1250,
+      "durum": "İkinci El",
+      "marka": "General Electric",
+      "model": "5KH32GN",
+      "yil": 2021,
+      "aciklama": "0.75kW (1HP) 3 fazlı asenkron motor",
+      "gorsel": "/assets/images/380v-1hp-ac-general-electric.webp",
+      "stok": 3,
+      "gorseller": [],
+      "guncellenme_tarihi": "2026-03-07T19:03:33.183Z"
+    },
+    {
+      "id": 5,
+      "adi": "Raspberry Pi 4 8GB",
+      "slug": "raspberry-pi-4-8gb",
+      "kategori_id": 2,
+      "altkategori_id": 201,
+      "sonaltkategori_id": 20104,
+      "fiyat": 3250,
+      "durum": "Sıfır",
+      "marka": "Raspberry Pi",
+      "model": "4B",
+      "yil": 2024,
+      "aciklama": "8GB RAM, 1.5GHz quad-core",
+      "gorsel": "/assets/images/mini-pc-raspberry-pi.webp",
+      "stok": 15
+    },
+    {
+      "id": 6,
+      "adi": "Ağır Hizmet Mengenesi",
+      "kategori_id": 4,
+      "altkategori_id": 305,
+      "sonaltkategori_id": 10205,
+      "fiyat": 85000,
+      "stok": "1",
+      "durum": "Sıfır",
+      "yil": "",
+      "marka": "Helion",
+      "model": "2020",
+      "aciklama": "45 cm çene açıklığı",
+      "gorseller": [
+        "/uploads/urunler/urun-1772908424055-243025491.webp"
+      ],
+      "slug": "ar-hizmet-mengenesi",
+      "eklenme_tarihi": "2026-03-07T18:33:44.059Z"
+    },
+    {
+      "id": 7,
+      "adi": "LifePo4 Battery",
+      "kategori_id": 3,
+      "altkategori_id": 302,
+      "sonaltkategori_id": null,
+      "fiyat": 750,
+      "stok": 100,
+      "durum": "Sıfır",
+      "marka": "Helion",
+      "model": "2020",
+      "gorseller": [],
+      "slug": "lifepo4-battery",
+      "eklenme_tarihi": "2026-03-07T19:06:40.987Z"
+    }
+  ]
+}

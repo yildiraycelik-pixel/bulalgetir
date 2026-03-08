@@ -1,0 +1,63 @@
+﻿<footer class="site-footer" style="position: relative; overflow: hidden;">
+    <!-- Biz Kim Görseli -->
+    <div class="footer-gorsel">
+        <img src="/assets/images/biz-kim.png" alt="Biz Kim" loading="lazy">
+    </div>
+    
+    <div class="container">
+        <div class="footer-grid">
+            <!-- 1. Bölüm: Logo ve Açıklama -->
+            <div class="footer-section">
+                <h3>BulalGetir</h3>
+                <p>İkinci el malzeme satışı, elektromekanik proje tasarım ve uygulama platformu</p>
+                <p>&copy; {% year %} Tüm hakları saklıdır.</p>
+            </div>
+            
+            <!-- 2. Bölüm: Kategoriler -->
+            <div class="footer-section">
+                <h4>Kategoriler</h4>
+                <ul>
+                    {% for kategori in kategoriler.kategoriler %}
+                    <li><a href="/{{ kategori.slug }}/">{{ kategori.adi }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+            
+            <!-- 3. Bölüm: Kurumsal ve Sosyal Medya -->
+            <div class="footer-section">
+                <h4>Kurumsal</h4>
+                <ul>
+                    <li><a href="/hakkimizda/">Hakkımızda</a></li>
+                    <li><a href="/projeler/">Projeler</a></li>
+                    <li><a href="/laboratuvar-test/">Laboratuvar Test</a></li>
+                    <li><a href="/uygulama-atolye/">Uygulama Atölye</a></li>
+                    <li><a href="/iletisim/">İletişim</a></li>
+                </ul>
+                
+                <!-- SOSYAL MEDYA LİNKLERİ (GÜNCELLENMİŞ YOUTUBE) -->
+                <div style="margin-top: 20px;">
+                    <h4 style="margin-bottom: 12px;">Bizi Takip Edin</h4>
+                    <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                        <a href="https://www.facebook.com/profile.php?id=61586852423277" target="_blank" rel="noopener" style="width: 36px; height: 36px; background: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; text-decoration: none; transition: all 0.3s;" onmouseover="this.style.background='#4267B2'; this.style.transform='translateY(-3px)';" onmouseout="this.style.background='rgba(255,255,255,0.1)'; this.style.transform='translateY(0)';">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://x.com/BGetir24397" target="_blank" rel="noopener" style="width: 36px; height: 36px; background: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; text-decoration: none; transition: all 0.3s;" onmouseover="this.style.background='#000000'; this.style.transform='translateY(-3px)';" onmouseout="this.style.background='rgba(255,255,255,0.1)'; this.style.transform='translateY(0)';">
+                            <i class="fab fa-x-twitter"></i>
+                        </a>
+                        <a href="https://www.instagram.com/bulvegetir/" target="_blank" rel="noopener" style="width: 36px; height: 36px; background: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; text-decoration: none; transition: all 0.3s;" onmouseover="this.style.background='#E4405F'; this.style.transform='translateY(-3px)';" onmouseout="this.style.background='rgba(255,255,255,0.1)'; this.style.transform='translateY(0)';">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/bul-getir-9107753a6/" target="_blank" rel="noopener" style="width: 36px; height: 36px; background: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; text-decoration: none; transition: all 0.3s;" onmouseover="this.style.background='#0077B5'; this.style.transform='translateY(-3px)';" onmouseout="this.style.background='rgba(255,255,255,0.1)'; this.style.transform='translateY(0)';">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <!-- YOUTUBE KANALI GÜNCELLENDİ -->
+                        <a href="https://www.youtube.com/@bulgetir" target="_blank" rel="noopener" style="width: 36px; height: 36px; background: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; text-decoration: none; transition: all 0.3s;" onmouseover="this.style.background='#FF0000'; this.style.transform='translateY(-3px)';" onmouseout="this.style.background='rgba(255,255,255,0.1)'; this.style.transform='translateY(0)';">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                    <p style="color: #ccc; font-size: 11px; margin-top: 10px;">1 abone, 6 video</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

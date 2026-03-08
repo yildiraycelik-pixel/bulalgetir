@@ -1,0 +1,100 @@
+{
+  "altkategoriler": [
+    {
+      "id": 101,
+      "adi": "Aydınlatma",
+      "slug": "aydnlatma",
+      "kategori_id": 9,
+      "sira": 1,
+      "guncellenme_tarihi": "2026-03-07T17:47:54.305Z"
+    },
+    {
+      "id": 102,
+      "adi": "Motorlar",
+      "slug": "motorlar",
+      "kategori_id": 9,
+      "sira": 2,
+      "guncellenme_tarihi": "2026-03-07T17:48:09.784Z"
+    },
+    {
+      "id": 103,
+      "adi": "Otomasyon",
+      "slug": "otomasyon",
+      "kategori_id": 9,
+      "sira": 3,
+      "guncellenme_tarihi": "2026-03-07T17:48:22.247Z"
+    },
+    {
+      "id": 104,
+      "adi": "Şalt Malzemeleri",
+      "slug": "alt-malzemeleri",
+      "kategori_id": 9,
+      "sira": 4,
+      "guncellenme_tarihi": "2026-03-07T17:48:33.664Z"
+    },
+    {
+      "id": 201,
+      "adi": "İşlemciler",
+      "slug": "islemciler",
+      "kategori_id": 2,
+      "sira": 1
+    },
+    {
+      "id": 202,
+      "adi": "Şarj Modülleri",
+      "slug": "sarj-modulleri",
+      "kategori_id": 2,
+      "sira": 2
+    },
+    {
+      "id": 203,
+      "adi": "Güç Elemanları",
+      "slug": "guc-elemanlari",
+      "kategori_id": 2,
+      "sira": 3
+    },
+    {
+      "id": 204,
+      "adi": "Manyetik Ekipmanlar",
+      "slug": "manyetik-ekipmanlar",
+      "kategori_id": 2,
+      "sira": 4
+    },
+    {
+      "id": 301,
+      "adi": "Aküler",
+      "slug": "akuler",
+      "kategori_id": 3,
+      "sira": 1
+    },
+    {
+      "id": 302,
+      "adi": "Piller",
+      "slug": "piller",
+      "kategori_id": 3,
+      "sira": 2
+    },
+    {
+      "id": 303,
+      "adi": "Solar Paneller",
+      "slug": "solar-paneller",
+      "kategori_id": 3,
+      "sira": 3
+    },
+    {
+      "id": 304,
+      "adi": "Alternatörler",
+      "slug": "alternatorler",
+      "kategori_id": 3,
+      "sira": 4
+    },
+    {
+      "id": 305,
+      "adi": "Mengeneler",
+      "slug": "mengeneler",
+      "kategori_id": 4,
+      "sira": 305,
+      "eklenme_tarihi": "2026-03-07T17:51:39.033Z"
+    }
+  ]
+}

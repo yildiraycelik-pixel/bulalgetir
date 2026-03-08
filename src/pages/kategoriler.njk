@@ -1,0 +1,19 @@
+﻿---
+layout: base.njk
+title: Kategoriler
+description: Tüm ürün kategorileri
+---
+
+<div class="sayfa-container">
+    <h1>Kategoriler</h1>
+    
+    <div class="kategori-grid">
+        {% for kategori in kategoriler.kategoriler %}
+        <div class="kategori-kart">
+            <a href="/{{ kategori.slug }}/">
+                <h3>{{ kategori.adi }}</h3>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</div>

@@ -1,0 +1,25 @@
+﻿{% if kategori or altKategori or sonAltKategori or urun %}
+<nav class="breadcrumb">
+    <div class="container">
+        <ul>
+            <li><a href="/">Ana Sayfa</a></li>
+            
+            {% if kategori %}
+            <li><a href="/{{ kategori.slug }}/">{{ kategori.adi }}</a></li>
+            {% endif %}
+            
+            {% if altKategori %}
+            <li><a href="/{{ kategori.slug }}/{{ altKategori.slug }}/">{{ altKategori.adi }}</a></li>
+            {% endif %}
+            
+            {% if sonAltKategori %}
+            <li><a href="/{{ kategori.slug }}/{{ altKategori.slug }}/{{ sonAltKategori.slug }}/">{{ sonAltKategori.adi }}</a></li>
+            {% endif %}
+            
+            {% if urun %}
+            <li>{{ urun.adi }}</li>
+            {% endif %}
+        </ul>
+    </div>
+</nav>
+{% endif %}

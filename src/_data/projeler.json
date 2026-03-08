@@ -1,0 +1,48 @@
+﻿{
+  "projeler": [
+    {
+      "id": 1,
+      "adi": "Fabrika Otomasyon Sistemi",
+      "slug": "fabrika-otomasyon",
+      "kategori": "otomasyon",
+      "musteri": "ABC Fabrika",
+      "tarih": "2025",
+      "aciklama": "Tam otomatik üretim hattı tasarımı ve uygulaması",
+      "detay": "5 robot kol, 5 PLC, 3 konveyör bant entegrasyonu",
+      "gorsel": "/assets/images/projeler/otomasyon1.jpg"
+    },
+    {
+      "id": 2,
+      "adi": "Güneş Enerji Santrali",
+      "slug": "ges-projesi",
+      "kategori": "enerji",
+      "musteri": "XYZ Enerji",
+      "tarih": "2024",
+      "aciklama": "1 MW kapasiteli çatı GES projesi",
+      "detay": "2500 panel, 10 inverter, yıllık 1.5 MWh üretim",
+      "gorsel": "/assets/images/projeler/enerji1.jpg"
+    },
+    {
+      "id": 3,
+      "adi": "CNC İşleme Merkezi",
+      "slug": "cnc-isleme",
+      "kategori": "mekanik",
+      "musteri": "DEF Makine",
+      "tarih": "2024",
+      "aciklama": "5 eksen CNC işleme merkezi kurulumu",
+      "detay": "Fanuc kontrol, 12000 rpm, 40 takım kapasitesi",
+      "gorsel": "/assets/images/projeler/mekanik1.jpg"
+    },
+    {
+      "id": 4,
+      "adi": "Trafo Merkezi Modernizasyonu",
+      "slug": "trafo-modernizasyon",
+      "kategori": "elektrik",
+      "musteri": "GHI Elektrik",
+      "tarih": "2023",
+      "aciklama": "34.5 kV trafo merkezi yenileme",
+      "detay": "2 adet 25 MVA trafo, SCADA sistemi",
+      "gorsel": "/assets/images/projeler/elektrik1.jpg"
+    }
+  ]
+}

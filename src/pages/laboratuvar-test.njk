@@ -1,0 +1,523 @@
+﻿---
+layout: base.njk
+title: Laboratuvar Test
+description: Elektromekanik test ve analiz hizmetleri
+permalink: /laboratuvar-test/index.html
+---
+
+<style>
+/* ===== LABORATUVAR TEST SAYFASI STİLLERİ ===== */
+.lab-sayfasi {
+    padding: 60px 0;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.lab-sayfasi .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.lab-sayfasi .sayfa-baslik {
+    text-align: center;
+    color: #2c5f2d;
+    font-size: 42px;
+    margin-bottom: 20px;
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.lab-sayfasi .sayfa-baslik:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: #e6b17e;
+    border-radius: 2px;
+}
+
+.lab-sayfasi .lab-aciklama {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 50px;
+    color: #666;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+/* ===== TEST KATEGORİLERİ ===== */
+.lab-sayfasi .test-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+.lab-sayfasi .test-kategori {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(44, 95, 45, 0.1);
+    transition: all 0.3s;
+    border: 2px solid #2c5f2d;
+    position: relative;
+}
+
+.lab-sayfasi .test-kategori:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(44, 95, 45, 0.2);
+    border-color: #e6b17e;
+}
+
+.lab-sayfasi .kategori-header {
+    background: linear-gradient(135deg, #2c5f2d, #1e3f1e);
+    color: white;
+    padding: 25px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.lab-sayfasi .kategori-header:before {
+    content: '';
+    position: absolute;
+    top: -30px;
+    right: -30px;
+    width: 100px;
+    height: 100px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 50%;
+}
+
+.lab-sayfasi .kategori-header i {
+    font-size: 48px;
+    margin-bottom: 15px;
+    color: #e6b17e;
+}
+
+.lab-sayfasi .kategori-header h2 {
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.lab-sayfasi .kategori-body {
+    padding: 25px;
+}
+
+.lab-sayfasi .kategori-body ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.lab-sayfasi .kategori-body li {
+    padding: 12px 0;
+    border-bottom: 1px solid #f0f0f0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #555;
+    transition: all 0.3s;
+}
+
+.lab-sayfasi .kategori-body li:hover {
+    padding-left: 10px;
+    color: #2c5f2d;
+}
+
+.lab-sayfasi .kategori-body li i {
+    color: #e6b17e;
+    font-size: 14px;
+    width: 20px;
+}
+
+.lab-sayfasi .kategori-body li:last-child {
+    border-bottom: none;
+}
+
+.lab-sayfasi .test-sayisi {
+    display: inline-block;
+    background: #e6b17e;
+    color: #2c5f2d;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-top: 15px;
+}
+
+/* ===== EKİPMAN LİSTESİ ===== */
+.lab-sayfasi .ekipman-section {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(44, 95, 45, 0.1);
+    border: 2px solid #2c5f2d;
+    margin-bottom: 40px;
+}
+
+.lab-sayfasi .ekipman-section h2 {
+    color: #2c5f2d;
+    font-size: 28px;
+    margin-bottom: 30px;
+    text-align: center;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.lab-sayfasi .ekipman-section h2:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: #e6b17e;
+    border-radius: 2px;
+}
+
+.lab-sayfasi .ekipman-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.lab-sayfasi .ekipman-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    transition: all 0.3s;
+}
+
+.lab-sayfasi .ekipman-item:hover {
+    background: #e6b17e20;
+    transform: translateX(5px);
+}
+
+.lab-sayfasi .ekipman-icon {
+    width: 40px;
+    height: 40px;
+    background: #2c5f2d;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 18px;
+    flex-shrink: 0;
+}
+
+.lab-sayfasi .ekipman-item span {
+    color: #333;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+/* ===== İSTATİSTİKLER ===== */
+.lab-sayfasi .istatistikler {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.lab-sayfasi .istatistik-item {
+    text-align: center;
+    padding: 30px 20px;
+    background: linear-gradient(135deg, #2c5f2d, #1e3f1e);
+    border-radius: 20px;
+    color: white;
+    transition: all 0.3s;
+    border: 2px solid transparent;
+}
+
+.lab-sayfasi .istatistik-item:hover {
+    transform: translateY(-5px);
+    border-color: #e6b17e;
+    box-shadow: 0 10px 30px rgba(44, 95, 45, 0.3);
+}
+
+.lab-sayfasi .istatistik-sayi {
+    font-size: 42px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #e6b17e;
+}
+
+.lab-sayfasi .istatistik-label {
+    font-size: 16px;
+    opacity: 0.9;
+}
+
+/* ===== RANDEVU BÖLÜMÜ ===== */
+.lab-sayfasi .randevu-section {
+    background: linear-gradient(135deg, #2c5f2d, #1e3f1e);
+    border-radius: 20px;
+    padding: 50px;
+    text-align: center;
+    color: white;
+    margin-top: 40px;
+    position: relative;
+    overflow: hidden;
+}
+
+.lab-sayfasi .randevu-section:before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 200px;
+    height: 200px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 50%;
+}
+
+.lab-sayfasi .randevu-section:after {
+    content: '';
+    position: absolute;
+    bottom: -50px;
+    left: -50px;
+    width: 200px;
+    height: 200px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 50%;
+}
+
+.lab-sayfasi .randevu-section h2 {
+    font-size: 32px;
+    margin-bottom: 15px;
+    position: relative;
+    z-index: 1;
+}
+
+.lab-sayfasi .randevu-section p {
+    font-size: 18px;
+    margin-bottom: 30px;
+    opacity: 0.95;
+    position: relative;
+    z-index: 1;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.lab-sayfasi .randevu-btn {
+    display: inline-block;
+    padding: 18px 50px;
+    background: white;
+    color: #2c5f2d;
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 18px;
+    font-weight: 600;
+    transition: all 0.3s;
+    border: 2px solid white;
+    position: relative;
+    z-index: 1;
+}
+
+.lab-sayfasi .randevu-btn:hover {
+    background: transparent;
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 992px) {
+    .lab-sayfasi .test-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .lab-sayfasi .ekipman-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .lab-sayfasi .istatistikler {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .lab-sayfasi .test-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .lab-sayfasi .ekipman-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .lab-sayfasi .istatistikler {
+        grid-template-columns: 1fr;
+    }
+    
+    .lab-sayfasi .sayfa-baslik {
+        font-size: 32px;
+    }
+    
+    .lab-sayfasi .randevu-section {
+        padding: 30px 20px;
+    }
+    
+    .lab-sayfasi .randevu-section h2 {
+        font-size: 24px;
+    }
+    
+    .lab-sayfasi .randevu-section p {
+        font-size: 16px;
+    }
+    
+    .lab-sayfasi .randevu-btn {
+        width: 100%;
+        padding: 15px;
+    }
+}
+</style>
+
+<div class="lab-sayfasi">
+    <div class="container">
+        <h1 class="sayfa-baslik">Laboratuvar Test</h1>
+        <p class="lab-aciklama">
+            Son teknoloji test ekipmanlarımız ve uzman ekibimizle, tüm elektromekanik test ihtiyaçlarınız için yanınızdayız.
+        </p>
+        
+        <!-- Test Kategorileri -->
+        <div class="test-grid">
+            <!-- Elektriksel Testler -->
+            <div class="test-kategori">
+                <div class="kategori-header">
+                    <i class="fas fa-bolt"></i>
+                    <h2>Elektriksel Testler</h2>
+                </div>
+                <div class="kategori-body">
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> İzolasyon Direnci Ölçümü</li>
+                        <li><i class="fas fa-check-circle"></i> Kaçak Akım Testi</li>
+                        <li><i class="fas fa-check-circle"></i> Yük Altında Çalışma Testi</li>
+                        <li><i class="fas fa-check-circle"></i> Gerilim Dayanım Testi</li>
+                        <li><i class="fas fa-check-circle"></i> Frekans Analizi</li>
+                        <li><i class="fas fa-check-circle"></i> Güç Kalitesi Analizi</li>
+                    </ul>
+                    <span class="test-sayisi">6 Test</span>
+                </div>
+            </div>
+            
+            <!-- Elektronik Testler -->
+            <div class="test-kategori">
+                <div class="kategori-header">
+                    <i class="fas fa-microchip"></i>
+                    <h2>Elektronik Testler</h2>
+                </div>
+                <div class="kategori-body">
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> OSİLOSKOP ile Sinyal Analizi</li>
+                        <li><i class="fas fa-check-circle"></i> Spektrum Analizi</li>
+                        <li><i class="fas fa-check-circle"></i> Güç Kalitesi Ölçümü</li>
+                        <li><i class="fas fa-check-circle"></i> Termal Kamera ile İnceleme</li>
+                        <li><i class="fas fa-check-circle"></i> Fonksiyon Testleri</li>
+                        <li><i class="fas fa-check-circle"></i> BGA X-Ray Kontrol</li>
+                    </ul>
+                    <span class="test-sayisi">6 Test</span>
+                </div>
+            </div>
+            
+            <!-- Mekanik Testler -->
+            <div class="test-kategori">
+                <div class="kategori-header">
+                    <i class="fas fa-cog"></i>
+                    <h2>Mekanik Testler</h2>
+                </div>
+                <div class="kategori-body">
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Sertlik Ölçümü</li>
+                        <li><i class="fas fa-check-circle"></i> Çekme Dayanım Testi</li>
+                        <li><i class="fas fa-check-circle"></i> Titreşim Analizi</li>
+                        <li><i class="fas fa-check-circle"></i> Basınç Testi</li>
+                        <li><i class="fas fa-check-circle"></i> Mikrometrik Ölçümler</li>
+                        <li><i class="fas fa-check-circle"></i> Yüzey Pürüzlülüğü</li>
+                    </ul>
+                    <span class="test-sayisi">6 Test</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Ekipman Listesi -->
+        <div class="ekipman-section">
+            <h2>Test Ekipmanlarımız</h2>
+            <div class="ekipman-grid">
+                <div class="ekipman-item">
+                    <div class="ekipman-icon"><i class="fas fa-chart-line"></i></div>
+                    <span>Fluke 437 Series II Güç ve Enerji Analizörü</span>
+                </div>
+                <div class="ekipman-item">
+                    <div class="ekipman-icon"><i class="fas fa-wave-square"></i></div>
+                    <span>Rohde & Schwarz Sinyal Jeneratörü</span>
+                </div>
+                <div class="ekipman-item">
+                    <div class="ekipman-icon"><i class="fas fa-ruler"></i></div>
+                    <span>Hioki Direnç Ölçer</span>
+                </div>
+                <div class="ekipman-item">
+                    <div class="ekipman-icon"><i class="fas fa-thermometer-half"></i></div>
+                    <span>FLIR Termal Kamera</span>
+                </div>
+                <div class="ekipman-item">
+                    <div class="ekipman-icon"><i class="fas fa-microchip"></i></div>
+                    <span>Mitsubishi FX Serisi PLC Test Ünitesi</span>
+                </div>
+                <div class="ekipman-item">
+                    <div class="ekipman-icon"><i class="fas fa-tachometer-alt"></i></div>
+                    <span>Oscilloscope MSO 5 Serisi</span>
+                </div>
+                <div class="ekipman-item">
+                    <div class="ekipman-icon"><i class="fas fa-weight-hanging"></i></div>
+                    <span>Zwick/Roell Çekme Test Cihazı</span>
+                </div>
+                <div class="ekipman-item">
+                    <div class="ekipman-icon"><i class="fas fa-vibrate"></i></div>
+                    <span>Bruel & Kjaer Titreşim Analizörü</span>
+                </div>
+                <div class="ekipman-item">
+                    <div class="ekipman-icon"><i class="fas fa-microscope"></i></div>
+                    <span>Olympus XRF Analizör</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- İstatistikler -->
+        <div class="istatistikler">
+            <div class="istatistik-item">
+                <div class="istatistik-sayi">18</div>
+                <div class="istatistik-label">Test Kategorisi</div>
+            </div>
+            <div class="istatistik-item">
+                <div class="istatistik-sayi">50+</div>
+                <div class="istatistik-label">Test Ekipmanı</div>
+            </div>
+            <div class="istatistik-item">
+                <div class="istatistik-sayi">10+</div>
+                <div class="istatistik-label">Uzman Personel</div>
+            </div>
+            <div class="istatistik-item">
+                <div class="istatistik-sayi">7/24</div>
+                <div class="istatistik-label">Hızlı Sonuç</div>
+            </div>
+        </div>
+        
+        <!-- Randevu Bölümü -->
+        <div class="randevu-section">
+            <h2>Test Randevusu Alın</h2>
+            <p>Uzman ekibimiz ve son teknoloji ekipmanlarımızla test ihtiyaçlarınız için yanınızdayız. Hemen randevu alın.</p>
+            <a href="/iletisim" class="randevu-btn">Hemen Randevu Al</a>
+        </div>
+    </div>
+</div>
