@@ -30,7 +30,7 @@
     },
     {
       "id": 10201,
-      "adi": "Ac Dc Motorlar",
+      "adi": "AC DC Motorlar",
       "slug": "ac-dc-motorlar",
       "altkategori_id": 102,
       "sira": 1
@@ -57,13 +57,34 @@
       "sira": 4
     },
     {
-      "id": 10205,
-      "adi": "Kalıpçı Mengenesi",
-      "slug": "kalp-mengenesi",
-      "altkategori_id": 305,
-      "sira": 10205,
+      "id": 40101,
+      "adi": "Ağır Hizmet Mengeneleri",
+      "slug": "agir-hizmet-mengeneleri",
+      "altkategori_id": 401,
+      "sira": 1
+    },
+    {
+      "id": 40102,
+      "adi": "Kalıpçı Mengeneleri",
+      "slug": "kalipci-mengeneleri",
+      "altkategori_id": 401,
+      "sira": 2,
       "eklenme_tarihi": "2026-03-07T18:02:31.257Z",
       "guncellenme_tarihi": "2026-03-07T19:03:57.746Z"
+    },
+    {
+      "id": 40103,
+      "adi": "Hobi Mengeneleri",
+      "slug": "hobi-mengeneleri",
+      "altkategori_id": 401,
+      "sira": 3
+    },
+    {
+      "id": 40104,
+      "adi": "El Mengeneleri",
+      "slug": "el-mengeneleri",
+      "altkategori_id": 401,
+      "sira": 4
     }
   ]
 }

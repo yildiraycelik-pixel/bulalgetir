@@ -3,8 +3,8 @@
     {
       "id": 101,
       "adi": "Aydınlatma",
-      "slug": "aydnlatma",
-      "kategori_id": 9,
+      "slug": "aydinlatma",
+      "kategori_id": 1,
       "sira": 1,
       "guncellenme_tarihi": "2026-03-07T17:47:54.305Z"
     },
@@ -12,7 +12,7 @@
       "id": 102,
       "adi": "Motorlar",
       "slug": "motorlar",
-      "kategori_id": 9,
+      "kategori_id": 1,
       "sira": 2,
       "guncellenme_tarihi": "2026-03-07T17:48:09.784Z"
     },
@@ -20,17 +20,33 @@
       "id": 103,
       "adi": "Otomasyon",
       "slug": "otomasyon",
-      "kategori_id": 9,
+      "kategori_id": 1,
       "sira": 3,
       "guncellenme_tarihi": "2026-03-07T17:48:22.247Z"
     },
     {
       "id": 104,
       "adi": "Şalt Malzemeleri",
-      "slug": "alt-malzemeleri",
-      "kategori_id": 9,
+      "slug": "salt-malzemeleri",
+      "kategori_id": 1,
       "sira": 4,
       "guncellenme_tarihi": "2026-03-07T17:48:33.664Z"
+    },
+    {
+      "id": 105,
+      "adi": "Kablolar",
+      "slug": "kablolar",
+      "kategori_id": 1,
+      "sira": 5,
+      "eklenme_tarihi": "2026-03-09T10:00:00.000Z"
+    },
+    {
+      "id": 106,
+      "adi": "Sigortalar",
+      "slug": "sigortalar",
+      "kategori_id": 1,
+      "sira": 6,
+      "eklenme_tarihi": "2026-03-09T10:00:00.000Z"
     },
     {
       "id": 201,
@@ -89,12 +105,145 @@
       "sira": 4
     },
     {
-      "id": 305,
+      "id": 401,
       "adi": "Mengeneler",
       "slug": "mengeneler",
       "kategori_id": 4,
-      "sira": 305,
+      "sira": 1,
       "eklenme_tarihi": "2026-03-07T17:51:39.033Z"
+    },
+    {
+      "id": 402,
+      "adi": "Malzeme Sürücüler",
+      "slug": "malzeme-suruculer",
+      "kategori_id": 4,
+      "sira": 2
+    },
+    {
+      "id": 403,
+      "adi": "Yarı Mamuller",
+      "slug": "yari-mamuller",
+      "kategori_id": 4,
+      "sira": 3
+    },
+    {
+      "id": 404,
+      "adi": "Yedek Parça",
+      "slug": "yedek-parca",
+      "kategori_id": 4,
+      "sira": 4
+    },
+    {
+      "id": 501,
+      "adi": "Presler",
+      "slug": "presler",
+      "kategori_id": 5,
+      "sira": 1
+    },
+    {
+      "id": 502,
+      "adi": "Taşlamalar",
+      "slug": "taslamalar",
+      "kategori_id": 5,
+      "sira": 2
+    },
+    {
+      "id": 503,
+      "adi": "Vibrasyon ve Kumlama",
+      "slug": "vibrasyon-ve-kumlama",
+      "kategori_id": 5,
+      "sira": 3
+    },
+    {
+      "id": 504,
+      "adi": "CNC Robotlar",
+      "slug": "cnc-robotlar",
+      "kategori_id": 5,
+      "sira": 4
+    },
+    {
+      "id": 601,
+      "adi": "Matkaplar",
+      "slug": "matkaplar",
+      "kategori_id": 6,
+      "sira": 1
+    },
+    {
+      "id": 602,
+      "adi": "Kesiciler Taşlamalar",
+      "slug": "kesiciler-taslamalar",
+      "kategori_id": 6,
+      "sira": 2
+    },
+    {
+      "id": 603,
+      "adi": "Kanal Açıcılar",
+      "slug": "kanal-acicilar",
+      "kategori_id": 6,
+      "sira": 3
+    },
+    {
+      "id": 604,
+      "adi": "Kaynak Lehim Makineleri",
+      "slug": "kaynak-lehim-makineleri",
+      "kategori_id": 6,
+      "sira": 4
+    },
+    {
+      "id": 701,
+      "adi": "Elektrik Montaj Malzemeleri",
+      "slug": "elektrik-montaj-malzemeleri",
+      "kategori_id": 7,
+      "sira": 1
+    },
+    {
+      "id": 702,
+      "adi": "Mekanik Montaj Malzemeleri",
+      "slug": "mekanik-montaj-malzemeleri",
+      "kategori_id": 7,
+      "sira": 2
+    },
+    {
+      "id": 703,
+      "adi": "Yapı Montaj Malzemeleri",
+      "slug": "yapi-montaj-malzemeleri",
+      "kategori_id": 7,
+      "sira": 3
+    },
+    {
+      "id": 704,
+      "adi": "Makine Montaj Malzemeleri",
+      "slug": "makine-montaj-malzemeleri",
+      "kategori_id": 7,
+      "sira": 4
+    },
+    {
+      "id": 801,
+      "adi": "Dekorasyon Ürünleri",
+      "slug": "dekorasyon-urunleri",
+      "kategori_id": 8,
+      "sira": 1
+    },
+    {
+      "id": 802,
+      "adi": "Teknolojik Ürünler",
+      "slug": "teknolojik-urunler",
+      "kategori_id": 8,
+      "sira": 2
+    },
+    {
+      "id": 803,
+      "adi": "İletişim Ürünleri",
+      "slug": "iletisim-urunleri",
+      "kategori_id": 8,
+      "sira": 3
+    },
+    {
+      "id": 804,
+      "adi": "Yapı Ürünleri",
+      "slug": "yapi-urunleri",
+      "kategori_id": 8,
+      "sira": 4
     }
   ]
 }
